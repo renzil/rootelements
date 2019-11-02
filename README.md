@@ -2,7 +2,7 @@
 Source code repository for Dzongri website.
 
 # Syncing
-Clone this repository using "git clone"
+Clone this repository using "git clone %REPO_URL%"
 
 # Installing
 Run "npm install" in a terminal. Tested using node 10, npm 6 and bash on OSX 10.13.6.
