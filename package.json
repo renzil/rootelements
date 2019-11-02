@@ -15,7 +15,7 @@
     "watch-dist": "live-server dist --no-browser",
     "watch-html": "nodemon --watch src/ --ext html --exec \"npm run copy-html\"",
     "watch-scss": "nodemon --watch src/scss/ --ext scss --exec \"npm run build-css\"",
-    "watch": "npm-run-all copy-external-deps copy-assets --parallel watch-dist watch-html watch-scss",
+    "watch": "npm-run-all build --parallel watch-dist watch-html watch-scss",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
