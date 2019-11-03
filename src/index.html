@@ -20,15 +20,27 @@
     </head>
     <body>
         <main>
-            <header class="menu">
-                <a>SHOP<img src="./assets/icons/down-arrow.svg" width="50px" height="20px"/></a>
-                <h3>dzongri </h3>
-                <img src="./assets/icons/empty-cart.png" width="100px" height="100px">
+            <header>
+                <nav class="mobile-menu">
+                    <a href="shop.html">SHOP<img class="shop-icon" src="./assets/icons/down-arrow.svg"/></a>
+                </nav>
+                <nav class="logo">
+                    <a href="/"><h3>root elements </h3></a>
+                </nav>
+                <nav class="desktop-menu">
+                    <a href="shop">SHOP</a>
+                    <a href="blog">OUR STORY</a>
+                    <a href="https://instagram.com/friendsofdzongri" target="_blank">FOLLOW US</a>
+                    <a href="cart"><img class="cart-icon" src="./assets/icons/empty-cart.png"></a>
+                </nav>
+                <nav class="mobile-cart">
+                    <a><img class="cart-icon" src="./assets/icons/empty-cart.png"></a>
+                </nav>
             </header>
             <footer>
                 <section class="content">		
                     <h1>Stay in touch </h1> 
-                        <p>New T-Shirt designs, upcoming products.</p>
+                    <p>New T-Shirt designs, upcoming products.</p>
                     <input type="text" name="email" placeholder="Your Email">
                     <button>SUBSCRIBE</button>
                     <p class="notification">Your email has been successfully subscribed</p>
@@ -48,6 +60,7 @@
                 </section>
             </footer>
         </main>
+        <script src="js/jquery.min.js"></script>
         <script>
             $(document).scroll(function() {
                 var h =  document.documentElement,
