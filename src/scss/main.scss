@@ -82,6 +82,20 @@ header {
     align-items: center;
     justify-content: center;
     background-color: rgba(225, 214, 192, 0.75);//#e1d6c0;
+    a {
+        font-size: 12px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    img.shop-icon {
+        width: 20px;
+        height: 8px;
+    }
+    img.cart-icon {
+        width: 30px;
+        height: 30px;
+    }
 
     nav {
         @include media-breakpoint-between(xs, sm) {
@@ -92,32 +106,31 @@ header {
     }
 
     @include media-breakpoint-up(xs) {
-        font-size: 1rem;
+        a {
+            font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+        }
+        h3 {
+            font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+        }
         img.shop-icon {
-            width: 50*0.5px;
-            height: 20*0.5px;
+            width: calc(20px + (100vw - 320px) / 120);
+            height: calc(8px + (100vw - 320px) / 120);
         }
         img.cart-icon {
-            width: 50*0.8px;
-            height: 50*0.8px;
-        }
-    }
-    @include media-breakpoint-up(md) {
-        font-size: 20px;
-        img.shop-icon {
-            width: 50*0.7px;
-            height: 20*0.7px;
-        }
-        img.cart-icon {
-            width: 50*0.9px;
-            height: 50*0.9px;
+            width: calc(30px + (100vw - 320px) / 120);
+            height: calc(30px + (100vw - 320px) / 120);
         }
     }
     @include media-breakpoint-up(lg) {
-        font-size: 24px;
+        a {
+            font-size: 18px;
+        }
+        h3 {
+            font-size: 20px;
+        }
         img.shop-icon {
-            width: 50*0.8px;
-            height: 20*0.8px;
+            width: 40px;
+            height: 16px;
         }
         img.cart-icon {
             width: 50px;
@@ -164,7 +177,7 @@ header {
             display: none !important;
         }
         a {
-            margin-right: 5px;
+            padding-right: 5px;
         }
     }
 }
