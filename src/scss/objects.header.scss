@@ -1,11 +1,8 @@
 .o-header {
   position: fixed;
   width: 100%;
+  @include scale-min-max(height, 65, 75);
   display: flex;
-  height: 75px;
-  @include media-breakpoint-only(xs) {
-      height: 45px;
-  }
   align-items: center;
   justify-content: center;
 
@@ -18,34 +15,27 @@
   }
 
   .s-icon-down {
-    width: calc(20px + (100vw - 320px) / 120);
-    height: calc(8px + (100vw - 320px) / 120);
+    width: 20px;
+    height: 8px;
     @include media-breakpoint-up(sm) {
       display: none !important;
     }
   }
   
   .s-icon-cart-empty {
-    width: calc(30px + (100vw - 320px) / 120);
-    height: calc(30px + (100vw - 320px) / 120);
-    @include media-breakpoint-up(lg) {
-      width: 50px;
-      height: 50px;
+    @include scale-min-max(width, 40, 45);
+    @include scale-min-max(height, 40, 45);
+
+    &:hover {
+      opacity:0.7;
     }
   }
 }
 
 .o-header-link {
-  font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+  @include scale-min-max(font-size, 16, 18);
   h3 {
-    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
-  }
-
-  @include media-breakpoint-up(lg) {
-    font-size: 18px;
-    h3 {
-      font-size: 20px;
-    }
+    @include scale-min-max(font-size, 18, 20);
   }
 }
 
@@ -62,7 +52,7 @@
 
 .o-header-menu {
   .o-header-link {
-    margin-left: 50px;
+    @include scale-min-max(margin-left, 20, 50);
   }
 
   @include media-breakpoint-only(xs) {
@@ -80,8 +70,8 @@
 
 .o-header-cart {
   a {
-    padding-left: 30px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 10px;
   }
   @include media-breakpoint-only(xs) {
     order: 3;

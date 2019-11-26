@@ -1,2 +1,33 @@
 /* Bootstrap utilities */
 @import "../../node_modules/bootstrap/scss/mixins";
+
+/* Root Elements custom utilities */
+
+/*
+  Function to convert px to number (remove px from units)
+  For example, remove-px(20px) will return 20.
+*/
+@function remove-px($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/*  
+  Mixin to scale any CSS property between a min and max value based on viewport width
+  For example, to scale the margin-left of a p from 20px on sm to 40px on xl you would add
+  p {
+    @include scale-min-max(margin-left, 20, 40);
+  }
+*/
+@mixin scale-min-max($property, $min, $max, $low: "sm", $high: "xl") {
+  $low-width-px: map-get($grid-breakpoints, $low);
+  $high-width-px: map-get($grid-breakpoints, $high);
+  $low-width: remove-px($low-width-px);
+  $high-width: remove-px($high-width-px);
+  #{$property}: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$low-width-px}) / (#{$high-width} - #{$low-width})));
+  @include media-breakpoint-only($low) {
+    #{$property}: $min;
+  }
+  @include media-breakpoint-up($high) {
+    #{$property}: $max;
+  }
+}
