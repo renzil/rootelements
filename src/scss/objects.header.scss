@@ -24,13 +24,13 @@
       width: calc(20px + (100vw - 320px) / 120);
       height: calc(8px + (100vw - 320px) / 120);
     }
-    @include media-breakpoint-up(lg) {
-      width: 40px;
-      height: 16px;
+    @include media-breakpoint-up(md) {
+      display: none !important;
     }
   }
   
   .s-icon-cart-empty {
+    margin-left: 30px;
     width: 30px;
     height: 30px;
     @include media-breakpoint-up(xs) {
