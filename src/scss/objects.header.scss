@@ -3,14 +3,14 @@
   width: 100%;
   display: flex;
   height: 75px;
-  @include media-breakpoint-between(xs, sm) {
+  @include media-breakpoint-only(xs) {
       height: 45px;
   }
   align-items: center;
   justify-content: center;
 
   .o-header-nav {
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-only(xs) {
           flex-basis: 0;
       }
       display: flex;
@@ -18,25 +18,16 @@
   }
 
   .s-icon-down {
-    width: 20px;
-    height: 8px;
-    @include media-breakpoint-up(xs) {
-      width: calc(20px + (100vw - 320px) / 120);
-      height: calc(8px + (100vw - 320px) / 120);
-    }
-    @include media-breakpoint-up(md) {
+    width: calc(20px + (100vw - 320px) / 120);
+    height: calc(8px + (100vw - 320px) / 120);
+    @include media-breakpoint-up(sm) {
       display: none !important;
     }
   }
   
   .s-icon-cart-empty {
-    margin-left: 30px;
-    width: 30px;
-    height: 30px;
-    @include media-breakpoint-up(xs) {
-      width: calc(30px + (100vw - 320px) / 120);
-      height: calc(30px + (100vw - 320px) / 120);
-    }
+    width: calc(30px + (100vw - 320px) / 120);
+    height: calc(30px + (100vw - 320px) / 120);
     @include media-breakpoint-up(lg) {
       width: 50px;
       height: 50px;
@@ -45,17 +36,11 @@
 }
 
 .o-header-link {
-  font-size: 12px;
+  font-size: calc(12px + 6 * ((100vw - 320px) / 680));
   h3 {
-    font-size: 14px;
+    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
   }
 
-  @include media-breakpoint-up(xs) {
-    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
-    h3 {
-      font-size: calc(14px + 6 * ((100vw - 320px) / 680));
-    }
-  }
   @include media-breakpoint-up(lg) {
     font-size: 18px;
     h3 {
@@ -66,10 +51,11 @@
 
 .o-header-logo {
   flex-grow: 1.4;
-  @include media-breakpoint-between(xs, sm) {
+  @include media-breakpoint-only(xs) {
+    order: 2;
     justify-content: center;
   }
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     margin-left: 20px;
   }
 }
@@ -78,32 +64,28 @@
   .o-header-link {
     margin-left: 50px;
   }
-  /*@include media-breakpoint-down(sm) {
-      display: none !important;
-  }
-  @include media-breakpoint-up(md) {
-      margin-right: 20px;
-  }*/
-  @include media-breakpoint-between(xs, sm) {
+
+  @include media-breakpoint-only(xs) {
+    order: 1;
     flex-grow: 1;
-    @include media-breakpoint-up(md) {
-        display: none !important;
-    }
+
     .o-header-link {
         margin-left: 15px;
+        &:nth-of-type(2), &:nth-of-type(3) {
+          display: none !important;
+        }
     }
   }
 }
 
 .o-header-cart {
-  @include media-breakpoint-between(xs, sm) {
+  a {
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+  @include media-breakpoint-only(xs) {
+    order: 3;
     flex-grow: 1;
     justify-content: flex-end;
-    @include media-breakpoint-up(md) {
-        display: none !important;
-    }
-    a {
-        padding-right: 5px;
-    }
   }
 }
