@@ -14,7 +14,7 @@
       align-items: center;
   }
 
-  .s-icon-down {
+  .o-header-link[href="shop"] .o-icon {
     width: 20px;
     height: 8px;
     @include media-breakpoint-up(sm) {
@@ -22,7 +22,7 @@
     }
   }
   
-  .s-icon-cart-empty {
+  .o-header-link[href="cart"] .o-icon {
     @include scale-min-max(width, 40, 45);
     @include scale-min-max(height, 40, 45);
 
