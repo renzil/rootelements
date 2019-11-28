@@ -1,0 +1,367 @@
+// wrapper-content contains common styles for the outermost container of all wrappers.
+// For example, this would be a good place to add margins around the entire content.
+.o-wrapper-content {
+  @include media-breakpoint-up(lg) {
+    margin: 0 50px;
+  }
+  @include media-breakpoint-up(xl) {
+    margin: 0 100px;
+  }
+}
+
+.o-wrapper-hero-cols {
+  width: 100%;
+  position: relative;
+
+  .o-wrapper-hero-description {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    h1 {
+      font-size: 55px;
+      padding-bottom: 35px;
+      text-align: center;
+    }
+  
+    p {
+        text-align: center;
+        font-size: 28px;
+        line-height: 150%;
+        padding-bottom: 50px;
+    }
+  
+    a {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    @include media-breakpoint-down(md) {
+      transform: translate(50%);
+      justify-content: flex-end;
+    }
+  }
+
+  .o-wrapper-hero-description:nth-child(2) {
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .o-wrapper-hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    min-width: 500px;
+    z-index: -1;
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include media-breakpoint-down(md) {
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 50%;
+    }
+  }
+
+  .o-wrapper-hero-image:nth-child(1) {
+    left: 0;
+  }
+}
+
+.o-wrapper-hero-rows {
+
+}
+
+.o-wrapper-collapsible-primary {
+
+}
+
+.o-wrapper-collapsible-secondary {
+
+}
+
+.o-wrapper-collapsible-cols {
+
+}
+
+.o-wrapper-centerspread {
+
+}
+
+/*
+
+main {
+  @include media-breakpoint-down(sm) {
+      display: none !important;
+  }
+
+  section.product {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0px;
+      margin-right: 100px;
+
+      div:first-child {
+          width: 100%;
+          height: 100%;
+          background-image: url("../assets/images/tshirt.png");
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+      }
+
+      h1 {
+          font-size: 55px;
+          padding-bottom: 35px;
+          text-align: center;
+      }
+
+      p {
+          text-align: center;
+          font-size: 28px;
+          line-height: 150%;
+          padding-bottom: 50px;
+      }
+
+      a {
+          font-size: 28px;
+          font-weight: bold;
+      }
+
+      div:last-child {
+          width: 60%;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+  }
+
+  section.testimonials {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      //text-align: center;
+      //margin-left: 0px;
+      //margin-right: 100px;
+      text-align: center;
+
+      div:first-child {
+          height: 400px;
+          width: 60%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          img {
+              height: 300px;
+          }
+      }
+
+      a:first-of-type, a:last-of-type {
+          img {
+              filter: grayscale(100%);
+          }
+      }
+
+      h1 {
+          font-size: 55px;
+          padding-bottom: 20px;
+      }
+
+      p {
+          font-size: 28px;
+          line-height: 150%;
+          padding-bottom: 50px;
+      }
+
+      p + a {
+          font-size: 28px;
+          font-weight: bold;
+      }
+  }
+}
+
+.subscribe {
+  @include media-breakpoint-down(sm) {
+      display: none !important;
+  }
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+
+  h1{
+      font-size: 55px;
+      padding-bottom: 25px;
+  }
+
+  div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 30vw;
+  }
+
+  div:last-child {
+      height: 100%;
+      background-image: url("../assets/images/tshirt-folded.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+  }
+
+  p {
+      text-align: center;
+      font-size: 28px;
+      line-height: 150%;
+      padding-bottom: 40px;
+  }
+
+  input {
+      border: 4px solid #806456;
+      font-size: 24px;
+      border-radius: 15px;
+      background-color: #e1d6c0;
+      width: 80%;
+      height: 45px;
+      box-sizing: content-box;
+      margin-bottom: 15px;
+  }
+
+  input::placeholder {
+      padding-left: 10px;
+      text-align: left;
+      color:#806456;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  button {
+      background-color: #806456;
+      //border: 4px solid #806456;
+      color: #e1d6c0;
+      font-size: 24px;
+      border-radius: 15px;
+      width: 80%;
+      height: 50px;
+      box-sizing: content-box;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  button:hover {
+      background-color: #806456 * 1.2;
+  }
+
+  button:active {
+      background-color: #806456 * 1.2;
+  }
+
+  .notification{
+      font-size: 18px;
+      padding-top: 25px;
+      line-height: normal;
+      text-align: center;
+  }
+}
+
+footer{
+  @include media-breakpoint-down(sm) {
+      display: none !important;
+  }
+  height: 100vh;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+
+  h1{
+      font-size: 55px;
+      padding-bottom: 25px;
+      text-align: center;
+  }
+
+  div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 30vw;
+  }
+
+  div:first-child {
+      height: 100%;
+      background-image: url("../assets/images/tshirt-folded.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+  }
+
+  nav {
+      display: flex;
+      flex-wrap: wrap;
+      height: 250px;
+      a {
+          width: 50%;
+      }
+
+      @include media-breakpoint-up(xs) {
+          font-size: 24px;
+      }
+      @include media-breakpoint-up(md) {
+          font-size: 28px;
+      }
+      @include media-breakpoint-up(lg) {
+          font-size: 32px;
+      }
+  }
+
+  nav + section {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      width: 100%;
+      justify-content: space-between;
+      a img {
+          width: 50px;
+          height: 50px;
+      }
+  }
+}
+
+.footer-logo {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+      @include media-breakpoint-up(xs) {
+          font-size: 36px;
+      }
+      @include media-breakpoint-up(md) {
+          font-size: 48px;
+      }
+      @include media-breakpoint-up(lg) {
+          font-size: 75px;
+      }
+  }
+}
+*/

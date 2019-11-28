@@ -32,71 +32,93 @@
           <a class="o-header-link" href="cart"><img class="o-icon s-icon-cart-empty"></a>
         </nav>
       </header>
-      <main>
-        <section class="intro">
-          <div>
+      <main class="o-wrapper-content">
+        <section class="o-wrapper-hero-cols">
+          <div class="o-wrapper-hero-description vh-square">
             <h1>Change today for tomorrow</h1> 
             <p>Beautiful T-shirts, inside and out. Made from sustainable materials.</p>
             <a href="shop">SHOP NOW ></a>
           </div>
-          <div>
+          <div class="o-wrapper-hero-image s-wrapper-hero-girl vh-square">
           </div>
         </section>
-        <section class="product">
-          <div>
+        <section class="o-wrapper-hero-cols">
+          <div class="o-wrapper-hero-image s-wrapper-hero-tshirt vh-square">
           </div>
-          <div>
+          <div class="o-wrapper-hero-description vh-square">
             <h1>Sustainable clothing, literally</h1> 
             <p>Sublimation printed, never wears out. 100% recycled polyester.</p>
             <a href="blog">KNOW MORE ></a>
           </div>
         </section>
-        <section class="testimonials">
-          <div>
+        <!--section class="o-wrapper-hero-rows vh-100 testimonials">
+          <div class="o-wrapper-hero-image">
             <a href="https://instagram.com/friendsofdzongri" target="_blank"><img src="./assets/images/testimonials/1.jpg"></a>
             <a href="https://instagram.com/friendsofdzongri" target="_blank"><img src="./assets/images/testimonials/2.jpg"></a>
             <a href="https://instagram.com/friendsofdzongri" target="_blank"><img src="./assets/images/testimonials/3.jpg"></a>
           </div>
-          <h1>#rootelements</h1>
-          <p>Thank you for the love :)</p>
-          <a href="https://instagram.com/friendsofdzongri" target="_blank">FOLLOW US ></a>
-        </section>
+          <div class="o-wrapper-hero-description">
+            <h1>#rootelements</h1>
+            <p>Thank you for the love :)</p>
+            <a href="https://instagram.com/friendsofdzongri" target="_blank">FOLLOW US ></a>
+          </div>
+        </section-->
       </main>
-      <section class="subscribe">
-        <div>
-          <h1>Stay in touch </h1> 
-          <p>New T-Shirt designs, upcoming products.</p>
-          <input type="text" name="email" placeholder="Your Email">
-          <button>SUBSCRIBE</button>
-          <p class="notification">Your email has been successfully subscribed.</p>
-        </div>
-        <div>
-        </div>
+      <!--section class="o-wrapper-content subscribe">
+        <section class="o-wrapper-collapsible-cols">
+          <div class="o-wrapper-collapsible-primary">
+            <h1>Stay in touch </h1> 
+            <p>New T-Shirt designs, upcoming products.</p>
+            <input type="text" name="email" placeholder="Your Email">
+            <button>SUBSCRIBE</button>
+            <p class="notification">Your email has been successfully subscribed.</p>
+          </div>
+          <div class="o-wrapper-collapsible-secondary">
+          </div>
+        </section>
       </section>
-      <footer>
-        <div>
-        </div>
-        <div>
-          <nav>
-            <a href="/">HOME</a>
-            <a href="shop">SHOP</a>
-            <a href="contact">CONTACT</a>
-            <a href="blog">ABOUT US</a>
-            <a href="privacy">PRIVACY</a>
-            <a href="terms">TERMS</a>
-          </nav>
-          <section class="social">
-            <a href="https://instagram.com/friendsofdzongri" target="_blank"><img src="./assets/icons/social/insta.svg"></a>
-            <a href="https://facebook.com/friendsofdzongri" target="_blank"><img src="./assets/icons/social/fb.svg"></a>
-            <a href="https://twitter.com/dzongridotcom" target="_blank"><img src="./assets/icons/social/twitter.svg"></a>
-          </section>
-        </div>
+      <footer class="o-wrapper-content">
+        <section class="o-wrapper-collapsible-cols">
+          <div class="o-wrapper-collapsible-secondary">
+          </div>
+          <div class="o-wrapper-collapsible-primary">
+            <nav>
+              <a href="/">HOME</a>
+              <a href="shop">SHOP</a>
+              <a href="contact">CONTACT</a>
+              <a href="blog">ABOUT US</a>
+              <a href="privacy">PRIVACY</a>
+              <a href="terms">TERMS</a>
+            </nav>
+            <section class="social">
+              <a href="https://instagram.com/friendsofdzongri" target="_blank"><img src="./assets/icons/social/insta.svg"></a>
+              <a href="https://facebook.com/friendsofdzongri" target="_blank"><img src="./assets/icons/social/fb.svg"></a>
+              <a href="https://twitter.com/dzongridotcom" target="_blank"><img src="./assets/icons/social/twitter.svg"></a>
+            </section>
+          </div>
+        </section>
       </footer>
-      <section class="footer-logo">
-        <a href="/"><h1>root elements </h1></a>
-      </section>
+      <section class="o-wrapper-content footer-logo">
+        <section class="o-wrapper-centerspread vh-100">
+            <a href="/"><h1>root elements </h1></a>
+        </section>
+      </section-->
       <script src="js/jquery.min.js"></script>
       <script>
+
+        function resize() {
+          var vhsquares = $(".vh-square");
+          for (var i = 0; i < vhsquares.length; ++i) {
+            $(vhsquares[i]).css({height: $(vhsquares[i]).width() + "px"});
+          }
+        }
+
+        resize();
+
+        $(window).on("resize", function() {
+          resize();
+        });
+
         $(document).scroll(function() {
           var h =  document.documentElement,
               b =  document.body,
