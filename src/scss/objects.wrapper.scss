@@ -9,6 +9,25 @@
   }
 }
 
+.o-wrapper-hero-description {
+  text-align: center;
+  h1 {
+    @include scale-min-max(font-size, 36, 55);
+    padding-bottom: 35px;
+  }
+
+  p {
+      @include scale-min-max(font-size, 20, 28);
+      line-height: 150%;
+      padding-bottom: 50px;
+  }
+
+  a {
+      @include scale-min-max(font-size, 24, 36);
+      font-weight: bold;
+  }
+}
+
 .o-wrapper-hero-cols {
   width: 100%;
   display: flex;
@@ -21,31 +40,10 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-    h1 {
-      @include scale-min-max(font-size, 36, 55);
-      padding-bottom: 35px;
-      text-align: center;
-    }
-  
-    p {
-        text-align: center;
-        @include scale-min-max(font-size, 20, 28);
-        line-height: 150%;
-        padding-bottom: 50px;
-    }
-  
-    a {
-        @include scale-min-max(font-size, 24, 36);
-        font-weight: bold;
-    }
   }
 
   .o-wrapper-hero-image {
     width: 50%;
-
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -68,7 +66,28 @@
 }
 
 .o-wrapper-hero-rows {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
 
+  .o-wrapper-hero-collage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+
+    a {
+      width: 20%;
+
+      @include media-breakpoint-down(md) {
+        width: 30%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .o-wrapper-collapsible-primary {
