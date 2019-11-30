@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1; // this was needed after Bootstrap
 
   .o-header-nav {
       @include media-breakpoint-only(xs) {

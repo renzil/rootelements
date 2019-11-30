@@ -1,11 +1,12 @@
 // wrapper-content contains common styles for the outermost container of all wrappers.
 // For example, this would be a good place to add margins around the entire content.
 .o-wrapper-content {
+  @extend .container-fluid;
   @include media-breakpoint-up(lg) {
-    margin: 0 50px;
+    padding: 0 50px;
   }
   @include media-breakpoint-up(xl) {
-    margin: 0 100px;
+    padding: 0 100px;
   }
 }
 
@@ -29,48 +30,45 @@
 }
 
 .o-wrapper-hero-cols {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+  @extend .row;
   align-items: center;
-  justify-content: center;
+
   margin-bottom: 50px;
 
   .o-wrapper-hero-description {
-    width: 50%;
+    @extend .col-12;
+    @extend .col-lg-6;
+
     display: flex;
     flex-direction: column;
   }
 
   .o-wrapper-hero-image {
-    width: 50%;
+    @extend .col-12;
+    @extend .col-lg-6;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
   }
 
   @include media-breakpoint-down(md) {
-    flex-direction: column;
-
     .o-wrapper-hero-image {
-      width: 100%;
       order: 1;
     }
     .o-wrapper-hero-description {
-      width: 100%;
       order: 2;
-      box-sizing: border-box;
       padding: 0 50px;
     }
   }
 }
 
 .o-wrapper-hero-rows {
-  display: flex;
-  flex-direction: column;
+  @extend .row;
   margin-bottom: 50px;
 
   .o-wrapper-hero-collage {
+    @extend .col-12;
+
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -87,6 +85,10 @@
         width: 100%;
       }
     }
+  }
+  
+  .o-wrapper-hero-description {
+    @extend .col-12;
   }
 }
 
