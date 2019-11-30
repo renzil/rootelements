@@ -1,3 +1,8 @@
-/* Bootstrap settings */
+/* Bootstrap default settings */
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/root";
+
+/* Boootstrap override settings */
+$headings-margin-bottom: 0;
+$paragraph-margin-bottom: 0;

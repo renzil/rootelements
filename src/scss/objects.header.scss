@@ -33,9 +33,8 @@
 }
 
 .o-header-link {
-  @include scale-min-max(font-size, 16, 18);
-  h3 {
-    @include scale-min-max(font-size, 18, 20);
+  h2 {
+    @include scale-min-max(font-size, 18, 26);
   }
 }
 
