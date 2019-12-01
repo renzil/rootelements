@@ -170,6 +170,9 @@
   @include media-breakpoint-down(md) {
     margin: 0 100px;
   }
+  @include media-breakpoint-down(sm) {
+    margin: 0 10px;
+  }
 
   .o-content-footernav-site {
     display: flex;
