@@ -39,11 +39,11 @@
             <p>Beautiful T-shirts, inside and out. Made from sustainable materials.</p>
             <a href="shop">SHOP NOW ></a>
           </div>
-          <div class="o-wrapper-hero-image s-background-girl vh-square">
+          <div class="o-wrapper-hero-image s-background-girl h-square">
           </div>
         </section>
         <section class="o-wrapper-hero">
-          <div class="o-wrapper-hero-image s-background-tshirt vh-square">
+          <div class="o-wrapper-hero-image s-background-tshirt h-square">
           </div>
           <div class="o-wrapper-hero-description">
             <h1>Sustainable clothing, literally</h1> 
@@ -73,13 +73,13 @@
             <button>SUBSCRIBE</button>
             <p class="notification">Your email has been successfully subscribed.</p>
           </div>
-          <div class="o-wrapper-collapsible-secondary s-background-girl vh-square">
+          <div class="o-wrapper-collapsible-secondary s-background-girl h-square">
           </div>
         </section>
       </section>
       <footer class="o-wrapper-content">
         <section class="o-wrapper-collapsible">
-          <div class="o-wrapper-collapsible-secondary s-background-tshirt vh-square">
+          <div class="o-wrapper-collapsible-secondary s-background-tshirt h-square">
           </div>
           <div class="o-wrapper-collapsible-primary o-content-footernav">
             <nav class="o-content-footernav-site">
@@ -98,16 +98,11 @@
           </div>
         </section>
       </footer>
-      <!--section class="o-wrapper-content footer-logo">
-        <section class="o-wrapper-centerspread vh-100">
-            <a href="/"><h1>root elements </h1></a>
-        </section>
-      </section-->
       <script src="js/jquery.min.js"></script>
       <script>
 
         function resize() {
-          var vhsquares = $(".vh-square");
+          var vhsquares = $(".h-square");
           for (var i = 0; i < vhsquares.length; ++i) {
             $(vhsquares[i]).css({height: $(vhsquares[i]).width() + "px"});
           }
