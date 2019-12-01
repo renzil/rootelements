@@ -24,10 +24,10 @@
   $low-width: remove-px($low-width-px);
   $high-width: remove-px($high-width-px);
   #{$property}: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$low-width-px}) / (#{$high-width} - #{$low-width})));
-  @include media-breakpoint-only($low) {
-    #{$property}: $min;
+  @include media-breakpoint-down($low) {
+    #{$property}: unquote($min + "px");
   }
   @include media-breakpoint-up($high) {
-    #{$property}: $max;
+    #{$property}: unquote($max + "px");
   }
 }
