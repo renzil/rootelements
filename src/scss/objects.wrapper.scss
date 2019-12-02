@@ -179,7 +179,7 @@
     flex-wrap: wrap;
     text-align: left;
     height: 250px;
-    a {
+    div {
       width: 50%;
     }
     @include scale-min-max(font-size, 24, 32);
