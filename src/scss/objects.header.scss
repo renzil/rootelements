@@ -14,16 +14,8 @@
       display: flex;
       align-items: center;
   }
-
-  .o-header-link[href="shop"] .o-icon {
-    width: 20px;
-    height: 8px;
-    @include media-breakpoint-up(sm) {
-      display: none !important;
-    }
-  }
   
-  .o-header-link[href="cart"] .o-icon {
+  .o-header-link[href="cart"] {
     @include scale-min-max(width, 40, 45);
     @include scale-min-max(height, 40, 45);
   }
@@ -65,10 +57,11 @@
 }
 
 .o-header-cart {
-  a {
+  @include media-breakpoint-up(sm) {
     padding-left: 40px;
     padding-right: 10px;
   }
+
   @include media-breakpoint-only(xs) {
     order: 3;
     flex-grow: 1;

@@ -195,7 +195,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    a img {
+    a {
       @include scale-min-max(width, 60, 75);
       @include scale-min-max(height, 60, 75);
     }
