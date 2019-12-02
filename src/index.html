@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
     <body>
+      <canvas class="o-canvas"></canvas>
       <header class="o-header s-header-light">
         <nav class="o-header-nav o-header-logo">
           <a class="o-header-link" href="/"><h2>root elements </h2></a>
@@ -101,18 +102,58 @@
       <script src="js/jquery.min.js"></script>
       <script>
 
-        function resize() {
-          var vhsquares = $(".h-square");
-          for (var i = 0; i < vhsquares.length; ++i) {
-            $(vhsquares[i]).css({height: $(vhsquares[i]).width() + "px"});
+        function loadCanvas() {
+          var body = document.body, html = document.documentElement;
+          var docHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+                                html.clientHeight, html.scrollHeight, html.offsetHeight );
+          var canvas = $(".o-canvas")[0];
+          canvas.width = window.innerWidth;
+          canvas.height = docHeight;
+          var ctx = canvas.getContext("2d");
+          var imageSources = ["assets/icons/background/leaf1.svg", "assets/icons/background/leaf2.svg", "assets/icons/background/leaf3.svg", "assets/icons/background/leaf4.svg"];
+          var imageWidths = [75 / 2, 121 / 2, 301 / 2, 117 / 2];
+          var imageHeights = [100 / 2, 100 / 2, 100 / 2, 100 / 2];
+          var loadedImages = [null, null, null, null];
+          var loadedImagesCount = 0;
+          function onImageLoad(img) {
+            var currentSource = img.target.src.substring((location.protocol + "//" + location.host + "/").length);
+            loadedImages[imageSources.indexOf(currentSource)] = img.target;
+            ++loadedImagesCount;
+            if (loadedImagesCount !== imageSources.length) {
+              return;
+            }
+            var i = 0;
+            while (i < $(document).height()) {
+              var j = 0;
+              while (j < $(document).width()) {
+                var imageIndex = Math.floor(Math.random() * 4);
+                ctx.drawImage(loadedImages[imageIndex], j, i, imageWidths[imageIndex], imageHeights[imageIndex]);
+                j += (200 + Math.floor(Math.random() * 100));
+              }
+              i += (200 + Math.floor(Math.random() * 100));
+            }
+          }
+          for (var sourceIndex = 0; sourceIndex < imageSources.length; ++sourceIndex) {
+            var img = new Image();
+            img.onload = onImageLoad;
+            img.src = imageSources[sourceIndex];
           }
         }
 
-        resize();
+        function resize() {
+          var hsquares = $(".h-square");
+          for (var i = 0; i < hsquares.length; ++i) {
+            $(hsquares[i]).css({height: $(hsquares[i]).width() + "px"});
+          }
+        }
 
         $(window).on("resize", function() {
           resize();
+          loadCanvas();
         });
+
+        resize();
+        loadCanvas();
 
         $(document).scroll(function() {
           // tbd - make sure this is not getting called too many times
