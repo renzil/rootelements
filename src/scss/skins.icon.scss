@@ -1,24 +1,31 @@
 .s-icon-down::after {
   @include media-breakpoint-down(xs) {
-    display: inline-block;
-    content: url("../assets/icons/down-arrow.svg");
-    padding-left: 2px;
+    content: '';
+    background: url('../assets/icons/down-arrow.svg');
+    background-size: 100% 100%;
     width: 18px;
+    height: 10px;
+    display: inline-block;
+    margin-left: 2px;
   }
 }
 
 .s-icon-cart-empty {
-  content: url("../assets/icons/empty-cart.png");
+  background: url('../assets/icons/empty-cart.png');
+  background-size: 100% 100%;
 }
 
 .s-icon-insta {
-  content: url("../assets/icons/social/insta.svg");
+  background: url('../assets/icons/social/insta.svg');
+  background-size: 100% 100%;
 }
 
 .s-icon-fb {
-  content: url("../assets/icons/social/fb.svg");
+  background: url('../assets/icons/social/fb.svg');
+  background-size: 100% 100%;
 }
 
 .s-icon-twitter {
-  content: url("../assets/icons/social/twitter.svg");
+  background: url('../assets/icons/social/twitter.svg');
+  background-size: 100% 100%;
 }
