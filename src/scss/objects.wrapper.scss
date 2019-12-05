@@ -65,7 +65,7 @@
   }
 }
 
-.o-content-background-image {
+.o-content-background-contain {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -109,10 +109,10 @@
   }
 
   input {
-    border: 4px solid #806456;
+    border: 4px solid $dark-color;
     font-size: 24px;
     border-radius: 15px;
-    background-color: #e1d6c0;
+    background-color: $light-color;
     width: 80%;
     height: 45px;
     box-sizing: content-box;
@@ -122,14 +122,14 @@
   input::placeholder {
     padding-left: 10px;
     text-align: left;
-    color:#806456;
+    color: $dark-color;
     font-family: 'Montserrat', sans-serif;
   }
 
   button {
-    background-color: #806456;
-    //border: 4px solid #806456;
-    color: #e1d6c0;
+    background-color: $dark-color;
+    //border: 4px solid $dark-color;
+    color: $light-color;
     font-size: 24px;
     border-radius: 15px;
     width: 80%;
@@ -139,11 +139,11 @@
   }
 
   button:hover {
-    background-color: #806456 * 1.2;
+    background-color: $dark-color * 1.2;
   }
 
   button:active {
-    background-color: #806456 * 1.2;
+    background-color: $dark-color * 1.2;
   }
 
   .notification{

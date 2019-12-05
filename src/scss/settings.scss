@@ -3,7 +3,10 @@
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/root";
 
-/* Boootstrap override settings */
+/* Root Elements settings */
 $headings-margin-bottom: 0;
 $paragraph-margin-bottom: 0;
 $enable-grid-classes: true; // tbd - remove before production
+
+$light-color: #e1d6c0;
+$dark-color: #806456;
