@@ -1,7 +1,7 @@
 {
-  "name": "dzongri",
+  "name": "rootelements",
   "version": "1.0.0",
-  "description": "Dzongri website",
+  "description": "Root Elements website",
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/main.scss dist/css/main.css",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/renzil/dzongri.git"
+    "url": "git+https://github.com/renzil/rootelements.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/renzil/dzongri/issues"
+    "url": "https://github.com/renzil/rootelements/issues"
   },
-  "homepage": "https://github.com/renzil/dzongri#readme",
+  "homepage": "https://github.com/renzil/rootelements#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
