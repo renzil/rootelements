@@ -1,6 +1,6 @@
 // wrapper-content contains common styles for the outermost container of all wrappers.
 // For example, this would be a good place to add margins around the entire content.
-.o-wrapper-content {
+.o-wrapper-container {
   @extend .container-fluid;
   @include media-breakpoint-up(lg) {
     padding: 0 50px;
@@ -11,99 +11,87 @@
 }
 
 .o-wrapper-hero {
+  display: none;
+}
+
+.o-wrapper-row {
   @extend .row;
   align-items: center;
   margin-bottom: 50px;
+}
 
-  .o-wrapper-hero-description {
-    @extend .col;
+.o-wrapper-col {
+  @extend .col;
+}
 
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    h1 {
-      @include scale-min-max(font-size, 36, 55);
-      padding-bottom: 35px;
-    }
+.o-wrapper-col-fullwidth {
+  @extend .col-12;
+}
 
-    p {
-        @include scale-min-max(font-size, 20, 28);
-        line-height: 150%;
-        padding-bottom: 50px;
-    }
+.o-wrapper-col-mobilefullwidth {
+  @extend .col-12;
+  @extend .col-lg-6;
+}
 
-    a {
-        @include scale-min-max(font-size, 24, 36);
-        font-weight: bold;
-    }
-
-    @include media-breakpoint-down(md) {
-      order: 2;
-      padding: 0 50px;
-    }
-  }
-
-  .o-wrapper-hero-image {
-    @extend .col-lg-6;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    @include media-breakpoint-down(md) {
-      order: 1;
-    }
-  }
-
-  .o-wrapper-hero-collage {
-    @extend .col-12;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 30px;
-
-    a {
-      flex-basis: 20%;
-
-      @include media-breakpoint-down(md) {
-        flex-basis: 30%;
-      }
-
-      img {
-        width: 100%;
-      }
-    }
+.o-wrapper-col-mobile-hide {
+  @extend .col;
+  @include media-breakpoint-down(md) {
+    display: none;
   }
 }
 
-.o-wrapper-collapsible {
-  @extend .row;
-  align-items: center;
-  margin-bottom: 50px;
-
-  .o-wrapper-collapsible-primary {
-    @extend .col;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.o-content-cta-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  h1 {
+    @include scale-min-max(font-size, 36, 55);
+    padding-bottom: 35px;
   }
 
-  .o-wrapper-collapsible-secondary {
-    @extend .col-lg-6;
+  p {
+      @include scale-min-max(font-size, 20, 28);
+      line-height: 150%;
+      padding-bottom: 50px;
+  }
 
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+  a {
+      @include scale-min-max(font-size, 24, 36);
+      font-weight: bold;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 0 50px;
+  }
+}
+
+.o-content-background-image {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.o-content-image-collage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+  a {
+    flex-basis: 20%;
 
     @include media-breakpoint-down(md) {
-      display: none;
+      flex-basis: 30%;
+    }
+
+    img {
+      width: 100%;
     }
   }
 }
 
 .o-content-subscribe {
+  text-align: center;
   @include media-breakpoint-up(xl) {
     margin: 0 50px;
   }
