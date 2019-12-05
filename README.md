@@ -1,4 +1,4 @@
-# dzongri
+# Root Elements
 Source code repository for Root Elements website.
 
 # Syncing
