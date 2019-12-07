@@ -3,10 +3,10 @@
 .o-wrapper-container {
   @extend .container-fluid;
   @include media-breakpoint-up(lg) {
-    padding: 0 50px;
+    //padding: 0 50px;
   }
   @include media-breakpoint-up(xl) {
-    padding: 0 100px;
+    //padding: 0 100px;
   }
 }
 
@@ -95,6 +95,35 @@
 
   @include media-breakpoint-down(md) {
     padding: 0 50px;
+  }
+}
+
+.o-content-centerspread {
+  position: relative;
+  padding: 0;
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  h1 {
+    flex-basis: 40%;
+    color: #dddddd;//$light-color;
+    @include scale-min-max(font-size, 36, 55);
+    text-align: center;
   }
 }
 
@@ -220,5 +249,11 @@
       @include scale-min-max(width, 60, 75);
       @include scale-min-max(height, 60, 75);
     }
+  }
+}
+
+.o-display-tablet-up {
+  @include media-breakpoint-down(sm) {
+    display: none;
   }
 }
