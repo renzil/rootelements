@@ -257,3 +257,131 @@
     display: none;
   }
 }
+
+@mixin button-circle {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+}
+
+.o-button-circle {
+  @include button-circle;
+  
+  &--lightblue {
+    @include button-circle;
+    background: lightblue;
+  }
+  &--black {
+    @include button-circle;
+    background: black;
+  }
+  &--red {
+    @include button-circle;
+    background: red;
+  }
+  &--blue {
+    @include button-circle;
+    background: blue;
+  }
+
+  &--selected {
+    border-color: white;
+  }
+}
+
+.o-button-primary {
+  background-color: $dark-color;
+  color: $light-color;
+  font-size: 24px;
+  border-radius: 15px;
+  width: 80%;
+  height: 50px;
+  box-sizing: content-box;
+  font-family: 'Montserrat', sans-serif;
+
+  &:hover {
+    background-color: $dark-color * 1.2;
+  }
+
+  &:active {
+    background-color: $dark-color * 1.2;
+  }
+}
+
+@mixin button-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border-width: 3px;
+  box-sizing: content-box;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+
+  background-color: $light-color;
+  border-color: $dark-color;
+  color: $dark-color;
+  
+  &:hover {
+    border-color: $dark-color * 1.2;
+    color: $dark-color * 1.2;
+  }
+
+  &:active {
+    border-color: $dark-color * 1.2;
+    color: $dark-color * 1.2;
+  }
+}
+.o-button-toggle {
+  @include button-toggle;
+
+  &--selected {
+    @include button-toggle;
+    background-color: $dark-color;
+    border-color: $dark-color;
+    color: $light-color;
+    &:hover {
+      background-color: $dark-color * 1.2;
+      border-color: $dark-color * 1.2;
+      color: $light-color;
+    }
+  
+    &:active {
+      background-color: $dark-color * 1.2;
+      border-color: $dark-color * 1.2;
+      color: $light-color;
+    }
+  }
+}
+
+@mixin button-toggle-text {
+  background: none;
+  border: none;
+  color: $dark-color;
+  font-size: 28px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.o-button-toggle-text {
+  @include button-toggle-text;
+  &--selected {
+    @include button-toggle-text;
+    text-decoration: underline;
+  }
+}
+
+@mixin button-text {
+  background: none;
+  border: none;
+  color: $dark-color;
+  font-size: 18px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.o-button-text {
+  @include button-text;
+}

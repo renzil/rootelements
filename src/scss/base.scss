@@ -26,3 +26,8 @@ a {
 a:hover {
   color: $dark-color * 1.2;
 }
+
+.no-focus-outline a:focus,
+.no-focus-outline button:focus {
+  outline: none;
+}
