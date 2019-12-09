@@ -258,12 +258,91 @@
   }
 }
 
+.o-display-mobile-down {
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.o-product-details-wrapper {
+  @include media-breakpoint-down(md) {
+    margin: 0 auto;
+  }
+}
+
+.o-product-details-text {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+  @include scale-min-max(margin-bottom, 30, 50);
+  h2 {
+    @include scale-min-max(font-size, 32, 36);
+    margin-bottom: 20px;
+  }
+  p {
+    @include scale-min-max(font-size, 20, 24);
+    line-height: 1.5em;
+    margin-bottom: 10px;
+  }
+}
+
+.o-product-color-picker {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+  margin-bottom: 20px;
+  button {
+    margin-right: 10px;
+    &:last-of-type() {
+      margin-right: 0;
+    }
+  }
+}
+
+.o-product-gender-picker {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+  margin-bottom: 20px;
+  @include scale-min-max(font-size, 18, 24);
+  .o-button-text {
+    @include scale-min-max(font-size, 16, 20);
+  }
+}
+
+.o-product-size-picker {
+  margin-bottom: 20px;
+  button {
+    margin-right: 5px;
+    @include scale-min-max(width, 30, 50);
+    @include scale-min-max(height, 30, 50);
+    @include scale-min-max(border-radius, 12, 15);
+    @include scale-min-max(font-size, 18, 24);
+    &:last-of-type() {
+      margin-right: 0;
+    }
+  }
+}
+
+.o-product-buy-wrapper {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+  width: 100%;
+  button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
 @mixin button-circle {
   width: 50px;
   height: 50px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border-width: 3px;
+  border-color: #bbbbbb;
 }
 
 .o-button-circle {
@@ -271,23 +350,27 @@
   
   &--lightblue {
     @include button-circle;
-    background: lightblue;
+    background: #add8e6;
+    background: #add8e6 * 0.9;
   }
   &--black {
     @include button-circle;
-    background: black;
+    background: #545454;
+    border-color: #545454 * 0.9;
   }
   &--red {
     @include button-circle;
-    background: red;
+    background: #ff5757;
+    border-color: #ff5757 * 0.9;
   }
-  &--blue {
+  &--orange {
     @include button-circle;
-    background: blue;
+    background: #ffbd59;
+    border-color: #ffbd59 * 0.9;
   }
 
   &--selected {
-    border-color: white;
+    border-color: #ffffff;
   }
 }
 
@@ -296,9 +379,7 @@
   color: $light-color;
   font-size: 24px;
   border-radius: 15px;
-  width: 80%;
-  height: 50px;
-  box-sizing: content-box;
+  height: 54px;
   font-family: 'Montserrat', sans-serif;
 
   &:hover {
@@ -356,10 +437,12 @@
 }
 
 @mixin button-toggle-text {
+  margin-right: 20px;
+  padding: 0;
+  
   background: none;
   border: none;
   color: $dark-color;
-  font-size: 28px;
   &:hover {
     opacity: 0.8;
   }
@@ -368,7 +451,9 @@
   @include button-toggle-text;
   &--selected {
     @include button-toggle-text;
-    text-decoration: underline;
+    border-bottom: 3px solid $dark-color;
+    padding-bottom: 3px;
+    font-weight: bold;
   }
 }
 
@@ -376,7 +461,6 @@
   background: none;
   border: none;
   color: $dark-color;
-  font-size: 18px;
   &:hover {
     opacity: 0.8;
   }
