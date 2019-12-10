@@ -53,7 +53,7 @@
           </div>
         </section>
         <section id="shop" class="o-wrapper-row">
-          <div id="product-details-image" class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-tshirt-details-male-blue h-square">
+          <div id="product-details-image" class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-product-details-male-blue h-square">
           </div>
           <div class="o-product-details-wrapper">
             <div class="o-product-details-text">
@@ -146,8 +146,7 @@
           $(".o-button-circle").each(function(index, button) {
             $(this).removeClass("o-button-circle--selected");
           });
-          $("#product-details-image").removeClass("s-background-tshirt-"+g_productColor);
-          $("#product-hero-image").removeClass("s-background-product-hero-"+g_productColor);
+          $("#product-details-image").removeClass("s-background-product-details-"+g_productGender+"-"+g_productColor);
 
           $("#color-picker-"+newProductColor).addClass("o-button-circle--selected");
           $("#product-details-image").addClass("s-background-product-details-"+g_productGender+"-"+newProductColor);
@@ -159,8 +158,10 @@
           $(".o-product-gender-picker .o-button-toggle-text").each(function(index, button) {
             $(this).removeClass("o-button-toggle-text--selected");
           });
+          $("#product-details-image").removeClass("s-background-product-details-"+g_productGender+"-"+g_productColor);
 
           $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
+          $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
           $("#product-hero-image").attr("src", "./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg");
           g_productGender = newProductGender;
         }
