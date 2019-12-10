@@ -33,7 +33,7 @@
       </header>
       <main class="o-wrapper-container">
         <section class="o-wrapper-hero">
-          <img class="o-wrapper-hero-image" src="./assets/images/hero.png">
+          <img class="o-wrapper-hero-image" src="https://gdurl.com/lcvp">
           <div class="o-wrapper-hero-cta o-content-cta-text">
             <h1>Sustainable clothing, literally</h1> 
             <p>Beautiful T-shirts, inside and out. Made from sustainable materials.</p>
@@ -42,7 +42,7 @@
         </section>
         <section id="story" class="o-wrapper-row">
           <div class="o-wrapper-col-fullwidth o-content-centerspread">
-            <img src="./assets/images/mission.jpg">
+            <img src="https://gdurl.com/g87l">
             <div>
               <h1>Cleaning the planet, together</h1>
             </div>
@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="o-product-hero-wrapper">
-            <img id="product-hero-image" src="./assets/images/product-hero-male-blue.jpg">
+            <img id="product-hero-image" src="https://gdurl.com/V2Uf">
           </div>
         </section>
       </main>
@@ -108,6 +108,17 @@
         var g_productColor = "blue";
         var g_productGender = "male";
         var g_productSize = "m";
+        var gdrive_map = new Object();
+        gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://gdurl.com/eL6w";
+        gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://gdurl.com/GvIb";
+        gdrive_map["./assets/images/product-hero-female-green.jpg"] = "https://gdurl.com/aFl0";
+        gdrive_map["./assets/images/product-hero-female-red.jpg"] = "https://gdurl.com/DWH1";
+        gdrive_map["./assets/images/product-hero-female-yellow.jpg"] = "https://gdurl.com/kfO8";
+        gdrive_map["./assets/images/product-hero-male-black.jpg"] = "https://gdurl.com/GV59";
+        gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://gdurl.com/V2Uf";
+        gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com/dcwm";
+        gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
+        gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
 
         function resize() {
           var hsquares = $(".h-square");
@@ -162,7 +173,7 @@
 
           $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
           $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
-          $("#product-hero-image").attr("src", "./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg");
+          $("#product-hero-image").attr("src", gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"]);
           g_productGender = newProductGender;
         }
 
