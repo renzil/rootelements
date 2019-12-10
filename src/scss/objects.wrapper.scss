@@ -266,8 +266,12 @@
 
 .o-product-details-wrapper {
   @include media-breakpoint-down(md) {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
   }
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .o-product-details-text {
@@ -289,6 +293,7 @@
 .o-product-color-picker {
   @include media-breakpoint-down(md) {
     text-align: center;
+    order: -1;
   }
   margin-bottom: 20px;
   button {
@@ -311,6 +316,9 @@
 }
 
 .o-product-size-picker {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
   margin-bottom: 20px;
   button {
     margin-right: 5px;
@@ -348,25 +356,25 @@
 .o-button-circle {
   @include button-circle;
   
-  &--lightblue {
-    @include button-circle;
+  &--blue {
     background: #add8e6;
     background: #add8e6 * 0.9;
   }
   &--black {
-    @include button-circle;
     background: #545454;
     border-color: #545454 * 0.9;
   }
   &--red {
-    @include button-circle;
     background: #ff5757;
     border-color: #ff5757 * 0.9;
   }
-  &--orange {
-    @include button-circle;
+  &--yellow {
     background: #ffbd59;
     border-color: #ffbd59 * 0.9;
+  }
+  &--green {
+    background: #bab86c;
+    border-color: #bab86c * 0.9;
   }
 
   &--selected {
@@ -418,7 +426,6 @@
   @include button-toggle;
 
   &--selected {
-    @include button-toggle;
     background-color: $dark-color;
     border-color: $dark-color;
     color: $light-color;
@@ -450,7 +457,6 @@
 .o-button-toggle-text {
   @include button-toggle-text;
   &--selected {
-    @include button-toggle-text;
     border-bottom: 3px solid $dark-color;
     padding-bottom: 3px;
     font-weight: bold;
@@ -468,4 +474,9 @@
 
 .o-button-text {
   @include button-text;
+}
+
+.o-product-hero-wrapper {
+  @extend .o-wrapper-col-fullwidth;
+  @extend .o-content-centerspread;
 }

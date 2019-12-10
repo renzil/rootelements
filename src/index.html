@@ -33,7 +33,7 @@
       </header>
       <main class="o-wrapper-container">
         <section class="o-wrapper-hero">
-          <img class="o-wrapper-hero-image" src="./assets/images/girl.png">
+          <img class="o-wrapper-hero-image" src="./assets/images/hero.png">
           <div class="o-wrapper-hero-cta o-content-cta-text">
             <h1>Sustainable clothing, literally</h1> 
             <p>Beautiful T-shirts, inside and out. Made from sustainable materials.</p>
@@ -42,7 +42,7 @@
         </section>
         <section id="story" class="o-wrapper-row">
           <div class="o-wrapper-col-fullwidth o-content-centerspread">
-            <img src="./assets/images/garbage.jpg">
+            <img src="./assets/images/mission.jpg">
             <div>
               <h1>Cleaning the planet, together</h1>
             </div>
@@ -53,47 +53,45 @@
           </div>
         </section>
         <section id="shop" class="o-wrapper-row">
-          <div class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-tshirt h-square">
+          <div id="product-details-image" class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-tshirt-black h-square">
           </div>
           <div class="o-product-details-wrapper">
-            <div class="o-product-color-picker o-display-mobile-down">
-              <button class="o-button-circle--lightblue o-button-circle--selected"></button>
-              <button class="o-button-circle--black"></button>
-              <button class="o-button-circle--red"></button>
-              <button class="o-button-circle--orange"></button>
-            </div>
             <div class="o-product-details-text">
               <h2>Elemental Blue</h1>
               <p>100% recycled polyester<br>Organic, natural dyes<br>Dot-knit fabric<br>Comfort fit</p>
             </div>
-            <div class="o-product-color-picker o-display-tablet-up">
-              <button class="o-button-circle--lightblue o-button-circle--selected"></button>
-              <button class="o-button-circle--black"></button>
-              <button class="o-button-circle--red"></button>
-              <button class="o-button-circle--orange"></button>
+            <div class="o-product-color-picker">
+              <button id="color-picker-blue" class="o-button-circle o-button-circle--blue o-button-circle--selected"></button>
+              <button id="color-picker-black" class="o-button-circle o-button-circle--black"></button>
+              <button id="color-picker-red" class="o-button-circle o-button-circle--red"></button>
+              <button id="color-picker-yellow" class="o-button-circle o-button-circle--yellow"></button>
+              <button id="color-picker-green" class="o-button-circle o-button-circle--green"></button>
             </div>
             <div class="o-product-gender-picker">
-              <button class="o-button-toggle-text--selected">MEN</button>
-              <button class="o-button-toggle-text">WOMEN</button>
+              <button id="gender-picker-male" class="o-button-toggle-text o-button-toggle-text--selected">MEN</button>
+              <button id="gender-picker-female" class="o-button-toggle-text">WOMEN</button>
               <button class="o-button-text">Sizing Chart</button>
             </div>
             <div class="o-product-size-picker">
-              <button class="o-button-toggle">XS</button>
-              <button class="o-button-toggle">S</button>
-              <button class="o-button-toggle--selected">M</button>
-              <button class="o-button-toggle">L</button>
-              <button class="o-button-toggle">XL</button>
+              <button id="size-picker-xs" class="o-button-toggle">XS</button>
+              <button id="size-picker-s" class="o-button-toggle">S</button>
+              <button id="size-picker-m" class="o-button-toggle o-button-toggle--selected">M</button>
+              <button id="size-picker-l" class="o-button-toggle">L</button>
+              <button id="size-picker-xl" class="o-button-toggle">XL</button>
             </div>
             <div class="o-product-buy-wrapper">
               <button class="o-button-primary">ADD FOR ₹1500</button>
               <p>Free shipping on all orders.</p>
             </div>
           </div>
+          <div class="o-product-hero-wrapper">
+            <img id="product-hero-image" src="./assets/images/product-hero-male-blue.jpg">
+          </div>
         </section>
       </main>
       <footer class="o-wrapper-container">
         <section class="o-wrapper-row">
-          <div class="o-wrapper-col-mobile-hide o-content-background-contain s-background-tshirt-folded h-square">
+          <div class="o-wrapper-col-mobile-hide o-content-background-contain s-background-product-folded h-square">
           </div>
           <div class="o-wrapper-col o-content-footernav">
             <nav class="o-content-footernav-site">
@@ -107,12 +105,9 @@
       </footer>
       <script src="js/jquery.min.js"></script>
       <script>
-
-        document.body.addEventListener('keyup', function(e) {
-          if (e.which === 9) /* tab */ {
-            document.documentElement.classList.remove('no-focus-outline');
-          }
-        });
+        var g_productColor = "blue";
+        var g_productGender = "male";
+        var g_productSize = "m";
 
         function resize() {
           var hsquares = $(".h-square");
@@ -121,13 +116,7 @@
           }
         }
 
-        $(window).on("resize", function() {
-          resize();
-        });
-
-        resize();
-
-        $(document).scroll(function() {
+        function onScroll() {
           // tbd - make sure this is not getting called too many times
           var h =  document.documentElement,
               b =  document.body,
@@ -151,7 +140,77 @@
           {
               gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 90 });
           }
-        });
+        }
+
+        function onColorChange(newProductColor) {
+          $(".o-button-circle").each(function(index, button) {
+            $(this).removeClass("o-button-circle--selected");
+          });
+          $("#product-details-image").removeClass("s-background-tshirt-"+g_productColor);
+          $("#product-hero-image").removeClass("s-background-product-hero-"+g_productColor);
+
+          $("#color-picker-"+newProductColor).addClass("o-button-circle--selected");
+          $("#product-details-image").addClass("s-background-tshirt-"+newProductColor);
+          $("#product-hero-image").attr("src", "./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg");
+          g_productColor = newProductColor;
+        }
+
+        function onGenderChange(newProductGender) {
+          $(".o-product-gender-picker .o-button-toggle-text").each(function(index, button) {
+            $(this).removeClass("o-button-toggle-text--selected");
+          });
+
+          $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
+          $("#product-hero-image").attr("src", "./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg");
+          g_productGender = newProductGender;
+        }
+
+        function onSizeChange(newProductSize) {
+          $(".o-product-size-picker .o-button-toggle").each(function(index, button) {
+            $(this).removeClass("o-button-toggle--selected");
+          });
+
+          $("#size-picker-"+newProductSize).addClass("o-button-toggle--selected");
+          g_productSize = newProductSize;
+        }
+
+        function installEventListeners() {
+          document.body.addEventListener('keyup', function(e) {
+            if (e.which === 9) /* tab */ {
+              document.documentElement.classList.remove('no-focus-outline');
+            }
+          });
+
+          $(window).on("resize", function() {
+            resize();
+          });
+
+          $(document).scroll(function() {
+            onScroll();
+          });
+
+          $(".o-product-color-picker .o-button-circle").on("click", function(event) {
+            var newProductColor = event.currentTarget.id.substring("color-picker-".length);
+            onColorChange(newProductColor);
+          });
+
+          $(".o-product-gender-picker .o-button-toggle-text").on("click", function(event) {
+            var newProductGender = event.currentTarget.id.substring("gender-picker-".length);
+            onGenderChange(newProductGender);
+          });
+
+          $(".o-product-size-picker .o-button-toggle").on("click", function(event) {
+            var newProductSize = event.currentTarget.id.substring("size-picker-".length);
+            onSizeChange(newProductSize);
+          });
+        }
+
+        function initialize() {
+          installEventListeners();
+          resize();
+        }
+
+        initialize();
       </script>
     </body>
 </html>
