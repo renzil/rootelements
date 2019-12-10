@@ -57,7 +57,7 @@
           </div>
           <div class="o-product-details-wrapper">
             <div class="o-product-details-text">
-              <h2>Elemental Blue</h1>
+              <h2 id="product-details-title">Icy Blue</h1>
               <p>100% recycled polyester<br>Organic, natural dyes<br>Dot-knit fabric<br>Comfort fit</p>
             </div>
             <div class="o-product-color-picker">
@@ -108,17 +108,23 @@
         var g_productColor = "blue";
         var g_productGender = "male";
         var g_productSize = "m";
-        var gdrive_map = new Object();
-        gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://gdurl.com/eL6w";
-        gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://gdurl.com/GvIb";
-        gdrive_map["./assets/images/product-hero-female-green.jpg"] = "https://gdurl.com/aFl0";
-        gdrive_map["./assets/images/product-hero-female-red.jpg"] = "https://gdurl.com/DWH1";
-        gdrive_map["./assets/images/product-hero-female-yellow.jpg"] = "https://gdurl.com/kfO8";
-        gdrive_map["./assets/images/product-hero-male-black.jpg"] = "https://gdurl.com/GV59";
-        gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://gdurl.com/V2Uf";
-        gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com/dcwm";
-        gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
-        gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
+        var g_productName_map = new Object();
+        g_productName_map["blue"] = "Icy Blue";
+        g_productName_map["black"] = "Space Gray";
+        g_productName_map["green"] = "Jungle Green";
+        g_productName_map["red"] = "Coral Red";
+        g_productName_map["yellow"] = "Tuscan Yellow";
+        var g_gdrive_map = new Object();
+        g_gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://gdurl.com/eL6w";
+        g_gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://gdurl.com/GvIb";
+        g_gdrive_map["./assets/images/product-hero-female-green.jpg"] = "https://gdurl.com/aFl0";
+        g_gdrive_map["./assets/images/product-hero-female-red.jpg"] = "https://gdurl.com/DWH1";
+        g_gdrive_map["./assets/images/product-hero-female-yellow.jpg"] = "https://gdurl.com/kfO8";
+        g_gdrive_map["./assets/images/product-hero-male-black.jpg"] = "https://gdurl.com/GV59";
+        g_gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://gdurl.com/V2Uf";
+        g_gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com/dcwm";
+        g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
+        g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
 
         function resize() {
           var hsquares = $(".h-square");
@@ -159,6 +165,7 @@
           });
           $("#product-details-image").removeClass("s-background-product-details-"+g_productGender+"-"+g_productColor);
 
+          $("#product-details-title").text(g_productName_map[newProductColor]);
           $("#color-picker-"+newProductColor).addClass("o-button-circle--selected");
           $("#product-details-image").addClass("s-background-product-details-"+g_productGender+"-"+newProductColor);
           $("#product-hero-image").attr("src", gdrive_map["./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg"]);
