@@ -61,8 +61,8 @@
               <p>100% recycled polyester<br>Organic, natural dyes<br>Dot-knit fabric<br>Comfort fit</p>
             </div>
             <div class="o-product-color-picker">
-              <button id="color-picker-blue" class="o-button-circle o-button-circle--blue o-button-circle--selected"></button>
               <button id="color-picker-black" class="o-button-circle o-button-circle--black"></button>
+              <button id="color-picker-blue" class="o-button-circle o-button-circle--blue o-button-circle--selected"></button>
               <button id="color-picker-red" class="o-button-circle o-button-circle--red"></button>
               <button id="color-picker-yellow" class="o-button-circle o-button-circle--yellow"></button>
               <button id="color-picker-green" class="o-button-circle o-button-circle--green"></button>
@@ -175,12 +175,24 @@
           $(".o-product-gender-picker .o-button-toggle-text").each(function(index, button) {
             $(this).removeClass("o-button-toggle-text--selected");
           });
+          $(".o-button-circle").each(function(index, button) {
+            $(this).removeClass("o-button-circle--selected");
+            var buttonColor = $(this).attr("id").substring("color-picker-".length);
+            if (newProductGender === "male" && ["black", "blue", "green"].indexOf(buttonColor) !== -1) {
+              $(this).show();
+            } else if (newProductGender === "female" && ["red", "blue", "yellow"].indexOf(buttonColor) !== -1) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
           $("#product-details-image").removeClass("s-background-product-details-"+g_productGender+"-"+g_productColor);
 
           $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
           $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
           $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"] + ')');
           g_productGender = newProductGender;
+          onColorChange(newProductGender === "male" ? "black" : "blue");
         }
 
         function onSizeChange(newProductSize) {
@@ -226,6 +238,7 @@
         function initialize() {
           installEventListeners();
           resize();
+          onGenderChange("male");
         }
 
         initialize();
