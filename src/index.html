@@ -84,8 +84,7 @@
               <p>Free shipping on all orders.</p>
             </div>
           </div>
-          <div class="o-product-hero-wrapper">
-            <img id="product-hero-image" src="https://gdurl.com/V2Uf">
+          <div id="product-hero-image" class="o-product-hero-wrapper">
           </div>
         </section>
       </main>
@@ -168,7 +167,7 @@
           $("#product-details-title").text(g_productName_map[newProductColor]);
           $("#color-picker-"+newProductColor).addClass("o-button-circle--selected");
           $("#product-details-image").addClass("s-background-product-details-"+g_productGender+"-"+newProductColor);
-          $("#product-hero-image").attr("src", g_gdrive_map["./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg"]);
+          $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg"] + ')');
           g_productColor = newProductColor;
         }
 
@@ -180,7 +179,7 @@
 
           $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
           $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
-          $("#product-hero-image").attr("src", g_gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"]);
+          $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"] + ')');
           g_productGender = newProductGender;
         }
 
