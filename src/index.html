@@ -70,7 +70,15 @@
             <div class="o-product-gender-picker">
               <button id="gender-picker-male" class="o-button-toggle-text o-button-toggle-text--selected">MEN</button>
               <button id="gender-picker-female" class="o-button-toggle-text">WOMEN</button>
-              <button class="o-button-text">Sizing Chart</button>
+              <button id="sizing-chart-button" class="o-button-text">Sizing Chart</button>
+              <div class="o-modal-wrapper">
+                <div id="sizing-chart-modal" class="o-sizing-chart-modal">
+                  <h2>Sizing Chart</h2>
+                  <table>
+                  </table>
+                  <p>All sizes in inches</p>
+                </div>
+              </div>
             </div>
             <div class="o-product-size-picker">
               <button id="size-picker-xs" class="o-button-toggle">XS</button>
@@ -113,6 +121,25 @@
         g_productName_map["green"] = "Jungle Green";
         g_productName_map["red"] = "Coral Red";
         g_productName_map["yellow"] = "Tuscan Yellow";
+
+        var g_sizing_chart = {
+          "male": [
+            ["XS", "34-36", "25.5"],
+            ["S", "36-38", "26"],
+            ["M", "38-40", "27"],
+            ["L", "40-42", "28"],
+            ["XL", "42-44", "29"],
+            ["2XL", "44-47", "30"]
+          ],
+          "female": [
+            ["XS", "30-32", "23"],
+            ["S", "32-34", "23.5"],
+            ["M", "34-36", "24"],
+            ["L", "36-38", "24.5"],
+            ["XL", "38-40", "25"],
+            ["2XL", "40-42", "25.5"]
+          ]
+        };
         var g_gdrive_map = new Object();
         g_gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://gdurl.com/eL6w";
         g_gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://gdurl.com/GvIb";
@@ -171,6 +198,17 @@
           g_productColor = newProductColor;
         }
 
+        function loadSizingChart(gender) {
+          $("#sizing-chart-modal h2").text(gender === "male" ? "Men's Sizing Chart" : "Women's Sizing Chart");
+          var sizing_chart_table = $("#sizing-chart-modal table");
+          sizing_chart_table.empty();
+          sizing_chart_table.append($("<tr></tr>").append($("<th></th>"), $("<th>Chest</th>"), $("<th>Length</th>")));
+          var size_array = g_sizing_chart[gender];
+          for (var size_array_index = 0; size_array_index < size_array.length; ++size_array_index) { 
+            var size_array_tuple = size_array[size_array_index];
+            sizing_chart_table.append($("<tr></tr>").append($("<td></td>").text(size_array_tuple[0]), $("<td></td>").text(size_array_tuple[1]), $("<td></td>").text(size_array_tuple[2])));
+          }
+        }
         function onGenderChange(newProductGender) {
           $(".o-product-gender-picker .o-button-toggle-text").each(function(index, button) {
             $(this).removeClass("o-button-toggle-text--selected");
@@ -192,6 +230,7 @@
           $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
           $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"] + ')');
           g_productGender = newProductGender;
+          loadSizingChart(newProductGender);
           onColorChange(newProductGender === "male" ? "black" : "blue");
         }
 
@@ -204,8 +243,29 @@
           g_productSize = newProductSize;
         }
 
+        function hideAllModals() {
+          $(".o-modal-wrapper").each(function(index, button) {
+            $(this).hide();
+          });
+          $("body").removeClass("modal-open");
+        }
+
+        function installModalEventListeners() {
+          $("body").on("keyup", function(e) {
+            if ($("body").hasClass("modal-open") && e.which === 27) {
+              hideAllModals();
+            }
+          });
+
+          $(".o-modal-wrapper").on("click", function(e) {
+            if ($("body").hasClass("modal-open")) {
+              hideAllModals();
+            }
+          });
+        }
+
         function installEventListeners() {
-          document.body.addEventListener('keyup', function(e) {
+          $("body").on("keyup", function(e) {
             if (e.which === 9) /* tab */ {
               document.documentElement.classList.remove('no-focus-outline');
             }
@@ -233,11 +293,19 @@
             var newProductSize = event.currentTarget.id.substring("size-picker-".length);
             onSizeChange(newProductSize);
           });
+
+          $("#sizing-chart-button").on("click", function(event) {
+            $("#sizing-chart-modal").parent().show();
+            $("body").addClass("modal-open");
+          });
+
+          installModalEventListeners();
         }
 
         function initialize() {
           installEventListeners();
           resize();
+          hideAllModals();
           onGenderChange("male");
         }
 

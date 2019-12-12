@@ -490,3 +490,51 @@
     padding-bottom: 177%;
   }
 }
+
+.modal-open {
+  overflow: hidden;
+}
+
+.o-modal-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.o-sizing-chart-modal {
+  max-width: 300px;
+  margin: 10vh auto;
+  background-color: darkgray;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+
+  font-size: 0.9rem;
+
+  h2 {
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  th, td:first-child() {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  p {
+    font-size: 0.7em;
+    padding-bottom: 20px;
+  }
+}
