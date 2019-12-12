@@ -356,6 +356,7 @@
   border-radius: 50%;
   border-width: 3px;
   border-color: #bbbbbb;
+  border-style: solid;
 }
 
 .o-button-circle {
@@ -363,7 +364,7 @@
   
   &--blue {
     background: #add8e6;
-    background: #add8e6 * 0.9;
+    border-color: #add8e6 * 0.9;
   }
   &--black {
     background: #545454;
@@ -392,6 +393,7 @@
   color: $light-color;
   font-size: 24px;
   border-radius: 15px;
+  border-width: 0;
   height: 54px;
   font-family: 'Montserrat', sans-serif;
 
@@ -409,6 +411,7 @@
   height: 50px;
   border-radius: 15px;
   border-width: 3px;
+  border-style: solid;
   box-sizing: content-box;
   font-size: 24px;
   font-family: 'Montserrat', sans-serif;
