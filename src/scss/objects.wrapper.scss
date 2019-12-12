@@ -320,6 +320,10 @@
     text-align: center;
   }
   margin-bottom: 20px;
+  span {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
   button {
     margin-right: 5px;
     @include scale-min-max(width, 30, 50);
@@ -335,8 +339,9 @@
 .o-product-buy-wrapper {
   @include media-breakpoint-down(md) {
     text-align: center;
+    width: 90%;
+    margin: 0 auto;
   }
-  width: 100%;
   button {
     width: 100%;
     margin-bottom: 20px;
@@ -409,15 +414,10 @@
   font-family: 'Montserrat', sans-serif;
 
   background-color: $light-color;
-  border-color: $dark-color;
+  border-color: $dark-color * 0.9;
   color: $dark-color;
   
   &:hover {
-    border-color: $dark-color * 1.2;
-    color: $dark-color * 1.2;
-  }
-
-  &:active {
     border-color: $dark-color * 1.2;
     color: $dark-color * 1.2;
   }
@@ -427,17 +427,10 @@
 
   &--selected {
     background-color: $dark-color;
-    border-color: $dark-color;
+    border-color: #ffffff;
     color: $light-color;
     &:hover {
-      background-color: $dark-color * 1.2;
-      border-color: $dark-color * 1.2;
-      color: $light-color;
-    }
-  
-    &:active {
-      background-color: $dark-color * 1.2;
-      border-color: $dark-color * 1.2;
+      border-color: #ffffff;
       color: $light-color;
     }
   }
