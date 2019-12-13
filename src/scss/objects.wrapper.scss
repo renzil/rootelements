@@ -98,35 +98,6 @@
   }
 }
 
-.o-content-centerspread {
-  position: relative;
-  padding: 0;
-  img {
-    width: 100%;
-    height: auto;
-    min-height: 400px;
-    object-fit: cover;
-    margin-bottom: 20px;
-  }
-  div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  h1 {
-    flex-basis: 40%;
-    color: #f5f5f5;
-    @include scale-min-max(font-size, 36, 55);
-    text-align: center;
-  }
-}
-
 .o-content-background-contain {
   background-position: center;
   background-size: contain;
@@ -262,6 +233,62 @@
   @include media-breakpoint-up(md) {
     display: none;
   }
+}
+
+.o-story-section-wrapper {
+  @extend .o-wrapper-row;
+  margin-bottom: 0;
+}
+
+.o-story-hero-wrapper {
+  background: url("https://gdurl.com/g87l");
+  background-size: cover;
+  background-position: center;
+
+  width: 100%;
+  height: 0;
+  
+  @media only screen and (orientation: landscape) {
+    padding-bottom: 50%;
+  }
+  @media only screen and (orientation: portrait) {
+    padding-bottom: 133%;
+  }
+
+  position: relative;
+  div {
+    width: 100%;
+    position: absolute;
+    color: #f5f5f5;
+    text-align: center;
+    bottom: 60px;
+  }
+  a {
+    color: #f5f5f5;
+    display: block;
+    margin-top: 20px;
+
+    &:hover {
+      color: #eeeeee;
+    }
+  }
+  @media only screen and (orientation: landscape) {
+    font-size: 2.2em;
+  }
+  @media only screen and (orientation: portrait) {
+    font-size: 1em;
+    @media (min-height: 992px) {
+        font-size: 2em;
+    }
+    @media (min-height: 1200px) {
+      font-size: 2em;
+    }
+  }
+}
+
+.o-shop-header {
+  width: 100%;
+  @include scale-min-max(height, 65, 75);
 }
 
 .o-product-details-wrapper {
@@ -507,11 +534,6 @@
 
   font-size: 0.9rem;
 
-  h2 {
-    padding-top: 20px;
-    margin-bottom: 20px;
-  }
-
   table {
     width: 280px;
     margin: 0 auto;
@@ -529,9 +551,14 @@
     font-size: 0.7em;
     padding-bottom: 20px;
   }
+
+  h2 {
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 
-.o-product-oos-modal {
+.o-subscribe-modal {
   max-width: 300px;
   margin: 10vh auto;
   background-color: darkgray;
@@ -539,18 +566,19 @@
   border-radius: 8px;
   padding: 0 20px;
   text-align: center;
-  
-  h2 {
+
+  .o-subscribe-modal-title {
     padding-top: 20px;
     margin-bottom: 20px;
   }
 
-  p {
+  .o-subscribe-modal-message {
     padding-bottom: 20px;
     text-align: justify;
   }
 
-  .o-product-oos-modal-status {
+  .o-subscribe-modal-status {
+    padding: 20px 0;
     text-align: left;
   }
 
@@ -578,6 +606,7 @@
 
   button {
     height: 45px;
+    width: 100%;
     background-color: #555555;
     color: white;
     font-size: 1em;

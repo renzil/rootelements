@@ -32,6 +32,15 @@
         </nav>
       </header>
       <main class="o-wrapper-container">
+        <div class="o-modal-wrapper o-modal-variant-clickout">
+          <div id="subscribe-modal" class="o-subscribe-modal">
+            <h2 class="o-subscribe-modal-title"></h2>
+            <p class="o-subscribe-modal-message"></p>
+            <input type="text" name="email" placeholder="Your Email">
+            <button class="o-button-primary">SUBSCRIBE</button>
+            <p class="o-subscribe-modal-status"></p>
+          </div>
+        </div>
         <section class="o-wrapper-hero">
           <img class="o-wrapper-hero-image" src="https://gdurl.com/lcvp">
           <div class="o-wrapper-hero-cta o-content-cta-text">
@@ -40,19 +49,16 @@
             <a href="#shop">SHOP NOW ></a>
           </div>
         </section>
-        <section id="story" class="o-wrapper-row">
-          <div class="o-wrapper-col-fullwidth o-content-centerspread">
-            <img src="https://gdurl.com/g87l">
+        <section id="story" class="o-story-section-wrapper">
+          <div class="o-story-hero-wrapper">
             <div>
-              <h1>Cleaning the planet, together</h1>
+              <h2>Cleaning the planet,<br/>together</h2>
+              <a id="story-know-more-link" href="#story">KNOW MORE ></a>
             </div>
-          </div>
-          <div class="o-wrapper-col-fullwidth o-content-cta-text">
-            <p>Every T-shirt purchased goes towards funding a cleanup.<br class="o-display-tablet-up"> Let's make the planet look good together.</p>
-            <a href="#story">KNOW MORE ></a>
           </div>
         </section>
         <section id="shop" class="o-wrapper-row">
+          <div class="o-shop-header"></div>
           <div id="product-details-image" class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-product-details-male-blue h-square">
           </div>
           <div class="o-product-details-wrapper">
@@ -95,15 +101,6 @@
             <div class="o-product-buy-wrapper">
               <button id="product-buy-button" class="o-button-primary">ADD FOR ₹1500</button>
               <p>Free shipping on all orders.</p>
-              <div class="o-modal-wrapper o-modal-variant-clickout">
-                <div id="product-oos-modal" class="o-product-oos-modal">
-                  <h2>New tees on the way!</h2>
-                  <p>All of our products are currently out of stock. You can drop us your email and we will let you know once they become available.</p>
-                  <input type="text" name="email" placeholder="Your Email">
-                  <button class="o-button-primary">SUBSCRIBE</button>
-                  <p class="o-product-oos-modal-status"></p>
-                </div>
-              </div>
             </div>
           </div>
           <div id="product-hero-image" class="o-product-hero-wrapper">
@@ -294,14 +291,14 @@
           });
         }
 
-        function onProductOutOfStockSubscribeClick() {
-          var responseText = $("#product-oos-modal .o-product-oos-modal-status");
+        function onSubscribeClick() {
+          var responseText = $("#subscribe-modal .o-subscribe-modal-status");
           responseText.text("Loading ...");
           gtag('event', 'click_internal', { 'event_category': 'click', 'event_label': 'subscribe', 'value': 1 });
           $.ajax({
               url: "https://t5us8k2b25.execute-api.us-east-1.amazonaws.com/prod/plasteeSubscribe",
               data: {
-                  email: $("#product-oos-modal input").val(),
+                  email: $("#subscribe-modal input").val(),
                   gender: g_productGender === "male" ? "Men" : "Women"
               },
               success: function(result) {
@@ -321,6 +318,13 @@
                   }
               }
           });
+        }
+
+        function showSubscribeModal(title, message) {
+          $("#subscribe-modal .o-subscribe-modal-title").text(title);
+          $("#subscribe-modal .o-subscribe-modal-message").text(message);
+          $("#subscribe-modal").parent().show();
+          $("body").addClass("modal-open");
         }
 
         function installEventListeners() {
@@ -359,20 +363,28 @@
           });
 
           $("#product-buy-button").on("click", function(event) {
-            $("#product-oos-modal").parent().show();
-            $("body").addClass("modal-open");
+            showSubscribeModal("New tees on the way!", "All of our products are currently out of stock. You can drop us your email and we will let you know once they become available.");
           });
 
-          $("#product-oos-modal input").keypress(function (e) {
+          $("#product-buy-button").on("click", function(event) {
+            showSubscribeModal("New tees on the way!", "All of our products are currently out of stock. You can drop us your email and we will let you know once they become available.");
+          });
+
+          $("#story-know-more-link").on("click", function(event) {
+            showSubscribeModal("Follow us", "Every T-shirt purchased goes towards cleaning up our cities. Subscribe to our newsletter to learn about our sustainability initiatives.");
+            event.preventDefault();
+          });
+
+          $("#subscribe-modal input").keypress(function (e) {
               if(e.which === 13) { // the enter key code
-                  onProductOutOfStockSubscribeClick();
+                  onSubscribeClick();
                   $(':focus').blur();
                   return false;  
               }
           });
 
-          $("#product-oos-modal button").on("click", function(event) {
-            onProductOutOfStockSubscribeClick();
+          $("#subscribe-modal button").on("click", function(event) {
+            onSubscribeClick();
           });
 
           installModalEventListeners();
