@@ -8,7 +8,7 @@
     "build": "npm-run-all build-css copy-html copy-external-deps copy-assets",
     "copy-assets": "npm-run-all assets-download assets-unzip assets-cleanup",
     "copy-external-deps": "cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && make-dir dist/js && cp node_modules/jquery/dist/jquery.min.js dist/js && cp node_modules/popper.js/dist/umd/popper.min.js dist/js && cp node_modules/bootstrap/dist/js/bootstrap.min.js dist/js",
-    "copy-html": "cp src/index.html dist",
+    "copy-html": "cp src/*.html dist",
     "assets-cleanup": "rimraf dist/assets.zip",
     "assets-download": "make-dir dist && nwget https://dzongri.s3.ap-south-1.amazonaws.com/assets/assets.zip -O dist/assets.zip",
     "assets-unzip": "decompress dist/assets.zip --out-dir=dist/",

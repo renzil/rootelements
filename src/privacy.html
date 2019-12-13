@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-focus-outline">
+  <head>
+    <meta charset="utf-8">
+    <title>root elements</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Suez+One&display=swap" rel="stylesheet">	
+      
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151321053-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-151321053-1');
+    </script>
+
+    <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+    <body>
+      <header class="o-header s-header-light">
+        <nav class="o-header-nav o-header-logo">
+          <a class="o-header-link" href="/"><h2>root elements </h2></a>
+        </nav>
+        <nav class="o-header-nav o-header-menu">
+          <a class="o-header-link" href="/#story">OUR STORY</a>
+          <a class="o-header-link o-icon s-icon-down" href="/#shop">SHOP</a>
+        </nav>
+        <nav class="o-header-nav o-header-cart">
+          <a class="o-header-link o-icon s-icon-cart-empty" href="#cart"></a>
+        </nav>
+      </header>
+      <main class="o-wrapper-container">
+        <div class="o-header-size"></div>
+        <section class="o-notice-wrapper">
+          <h1>Privacy Policy</h1>
+          <p>This privacy policy ("policy") will help you understand how Root Elements India ("us", "we", "our") uses and protects the data you provide to us when you visit and use rootelements.in ("website", "service").<br><br>
+            We reserve the right to change this policy at any given time, of which you will be promptly updated. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this page.<br><br>
+            <strong>What User Data We Collect</strong><br>
+            When you visit the website, we may collect the following data:<br><br>
+            •	Your IP address.<br>
+            •	Your contact information and email address.<br>
+            •	Other information such as interests and preferences.<br>
+            •	Data profile regarding your online behavior on our website.<br><br>
+            <strong>Why We Collect Your Data</strong><br>
+            We are collecting your data for several reasons:<br><br>
+            •	To better understand your needs.<br>
+            •	To improve our services and products.<br>
+            •	To send you promotional emails containing the information we think you will find interesting.<br>
+            •	To contact you to fill out surveys and participate in other types of market research.<br>
+            •	To customize our website according to your online behavior and personal preferences.<br><br>
+            <strong>Safeguarding and Securing the Data</strong><br>
+            Root Elements India is committed to securing your data and keeping it confidential. Root Elements India has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.<br><br>
+            <strong>Our Cookie Policy</strong><br>
+            Once you agree to allow our website to use cookies, you also agree to use the data it collects regarding your online behavior (analyze web traffic, web pages you spend the most time on, and websites you visit).<br><br>
+            The data we collect by using cookies is used to customize our website to your needs. After we use the data for statistical analysis, the data is completely removed from our systems.<br><br>
+            Please note that cookies don't allow us to gain control of your computer in any way. They are strictly used to monitor which pages you find useful and which you do not so that we can provide a better experience for you.<br><br>
+            If you want to disable cookies, you can do it by accessing the settings of your internet browser.<br><br>
+            <strong>Links to Other Websites</strong><br>
+            Our website contains links that lead to other websites. If you click on these links Root Elements India is not held responsible for your data and privacy protection. Visiting those websites is not governed by this privacy policy agreement. Make sure to read the privacy policy documentation of the website you go to from our website.<br><br>
+            <strong>Restricting the Collection of your Personal Data</strong><br>
+            At some point, you might wish to restrict the use and collection of your personal data. You can achieve this by doing the following:<br><br>
+            •	When you are filling the forms on the website, make sure to check if there is a box which you can leave unchecked, if you don't want to disclose your personal information.<br>
+            •	If you have already agreed to share your information with us, feel free to contact us via email and we will be more than happy to change this for you.<br><br>
+            Root Elements India will not lease, sell or distribute your personal information to any third parties, unless we have your permission. We might do so if the law forces us. Your personal information will be used when we need to send you promotional materials if you agree to this privacy policy.<br><br>
+          </p>
+        </section>
+      </main>
+      <footer class="o-wrapper-container">
+        <section class="o-wrapper-row">
+          <div class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-product-folded h-square">
+          </div>
+          <div class="o-wrapper-col o-content-footernav">
+            <nav class="o-content-footernav-site">
+              <div><a href="/">HOME</a></div>
+              <div><a href="mailto:hellorootelements@gmail.com">CONTACT</a></div>
+              <div><a href="#">PRIVACY</a></div>
+              <div><a href="terms.html">TERMS</a></div>
+            </nav>
+          </div>
+        </section>
+      </footer>
+      <script src="js/jquery.min.js"></script>
+      <script>
+        function resize() {
+          var hsquares = $(".h-square");
+          for (var i = 0; i < hsquares.length; ++i) {
+            $(hsquares[i]).css({height: $(hsquares[i]).width() + "px"});
+          }
+        }
+
+        function onScroll() {
+          // tbd - make sure this is not getting called too many times
+          var h =  document.documentElement,
+              b =  document.body,
+              st =  'scrollTop',
+              sh =  'scrollHeight';
+
+          var percent = parseInt ( (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
+          if (percent == 25)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 25 });
+          }
+          else if (percent == 50)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 50 });
+          }
+          else if (percent == 75)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 75 });
+          }
+          else if (percent == 90)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 90 });
+          }
+        }
+
+        function installEventListeners() {
+          $("body").on("keyup", function(e) {
+            if (e.which === 9) /* tab */ {
+              document.documentElement.classList.remove('no-focus-outline');
+            }
+          });
+
+          $(window).on("resize", function() {
+            resize();
+          });
+
+          $(document).scroll(function() {
+            onScroll();
+          });
+        }
+
+        function initialize() {
+          installEventListeners();
+          resize();
+        }
+
+        initialize();
+      </script>
+    </body>
+</html>

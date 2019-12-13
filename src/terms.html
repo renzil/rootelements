@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="no-focus-outline">
+  <head>
+    <meta charset="utf-8">
+    <title>root elements</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Suez+One&display=swap" rel="stylesheet">	
+      
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151321053-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-151321053-1');
+    </script>
+
+    <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+    <body>
+      <header class="o-header s-header-light">
+        <nav class="o-header-nav o-header-logo">
+          <a class="o-header-link" href="/"><h2>root elements </h2></a>
+        </nav>
+        <nav class="o-header-nav o-header-menu">
+          <a class="o-header-link" href="/#story">OUR STORY</a>
+          <a class="o-header-link o-icon s-icon-down" href="/#shop">SHOP</a>
+        </nav>
+        <nav class="o-header-nav o-header-cart">
+          <a class="o-header-link o-icon s-icon-cart-empty" href="#cart"></a>
+        </nav>
+      </header>
+      <main class="o-wrapper-container">
+        <div class="o-header-size"></div>
+        <section class="o-notice-wrapper">
+          <h1>Terms of Use</h1>
+          <p>Please read these terms and conditions ("terms", "terms and conditions") carefully before using rootelements.in website (the "service") operated by Root Elements India ("us", 'we", "our").<br><br>
+            <strong>Conditions of Use</strong><br>
+            We will provide their services to you, which are subject to the conditions stated below in this document. Every time you visit this website, use its services or make a purchase, you accept the following conditions. This is why we urge you to read them carefully.<br><br>
+            <strong>Privacy Policy</strong><br>
+            Before you continue using our website we advise you to read our <a href="/privacy.html">privacy policy</a> regarding our user data collection. It will help you better understand our practices.<br><br>
+            <strong>Copyright</strong><br>
+            Content published on this website (digital downloads, images, texts, graphics, logos) is the property of Root Elements India and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website is the exclusive property of Root Elements India, with copyright authorship for this compilation by Root Elements India.<br><br>
+            <strong>Communications</strong><br>
+            The entire communication with us is electronic. Every time you send us an email or visit our website, you are going to be communicating with us. You hereby consent to receive communications from us. If you subscribe to the news on our website, you are going to receive regular emails from us. We will continue to communicate with you by posting news and notices on our website and by sending you emails. You also agree that all notices, disclosures, agreements and other communications we provide to you electronically meet the legal requirements that such communications be in writing.<br><br>
+            <strong>Applicable Law</strong><br>
+            By visiting this website, you agree that the laws of Karnataka state, without regard to principles of conflict laws, will govern these terms and conditions, or any dispute of any sort that might come between Root Elements India and you, or its business partners and associates.<br><br>
+            <strong>Disputes</strong><br>
+            Any dispute related in any way to your visit to this website or to products you purchase from us shall be arbitrated by High Court of Karnataka state and you consent to exclusive jurisdiction and venue of such courts.<br><br>
+            <strong>License and Site Access</strong><br>
+            We grant you a limited license to access and make personal use of this website. You are not allowed to download or modify it. This may be done only with written consent from us.<br><br>
+          </p>
+        </section>
+      </main>
+      <footer class="o-wrapper-container">
+        <section class="o-wrapper-row">
+          <div class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-product-folded h-square">
+          </div>
+          <div class="o-wrapper-col o-content-footernav">
+            <nav class="o-content-footernav-site">
+              <div><a href="/">HOME</a></div>
+              <div><a href="mailto:hellorootelements@gmail.com">CONTACT</a></div>
+              <div><a href="privacy.html">PRIVACY</a></div>
+              <div><a href="#">TERMS</a></div>
+            </nav>
+          </div>
+        </section>
+      </footer>
+      <script src="js/jquery.min.js"></script>
+      <script>
+        function resize() {
+          var hsquares = $(".h-square");
+          for (var i = 0; i < hsquares.length; ++i) {
+            $(hsquares[i]).css({height: $(hsquares[i]).width() + "px"});
+          }
+        }
+
+        function onScroll() {
+          // tbd - make sure this is not getting called too many times
+          var h =  document.documentElement,
+              b =  document.body,
+              st =  'scrollTop',
+              sh =  'scrollHeight';
+
+          var percent = parseInt ( (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
+          if (percent == 25)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 25 });
+          }
+          else if (percent == 50)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 50 });
+          }
+          else if (percent == 75)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 75 });
+          }
+          else if (percent == 90)
+          {
+              gtag('event', 'scroll_change', { 'event_category': 'scroll', 'event_label': 'depth_percentage', 'value': 90 });
+          }
+        }
+
+        function installEventListeners() {
+          $("body").on("keyup", function(e) {
+            if (e.which === 9) /* tab */ {
+              document.documentElement.classList.remove('no-focus-outline');
+            }
+          });
+
+          $(window).on("resize", function() {
+            resize();
+          });
+
+          $(document).scroll(function() {
+            onScroll();
+          });
+        }
+
+        function initialize() {
+          installEventListeners();
+          resize();
+        }
+
+        initialize();
+      </script>
+    </body>
+</html>
