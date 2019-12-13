@@ -33,3 +33,64 @@
 .s-background-product-folded {
   background-image: url("https://gdurl.com/6bzP");
 }
+
+@mixin s-product-color($skin-light-color, $skin-dark-color) {
+  color: $skin-dark-color;
+  background-color: $skin-light-color;
+  background-image: url("https://gdurl.com/d0J4");
+  background-repeat: repeat;
+  
+  .o-product-size-picker .o-button-toggle {
+    background-color: $skin-light-color;
+    border-color: $skin-dark-color * 0.9;
+    color: $skin-dark-color;
+    
+    &:hover {
+      border-color: $skin-dark-color * 2;
+      color: $skin-dark-color * 2;
+    }
+
+    &--selected {
+      background-color: $skin-dark-color;
+      border-color: #ffffff;
+      color: $skin-light-color;
+      &:hover {
+        border-color: #ffffff;
+        color: $skin-light-color;
+      }
+    }
+  }
+
+  #sizing-chart-button {
+    color: $skin-dark-color;
+  }
+
+  #product-buy-button {
+    background-color: $skin-dark-color;
+    color: $skin-light-color;
+  
+    &:hover {
+      background-color: $skin-dark-color * 1.2;
+    }
+  }
+}
+
+.s-product-color-black {
+  @include s-product-color(#444444, #f9f8f4);
+}
+
+.s-product-color-blue {
+  @include s-product-color(#f9f9f9, #555555);
+}
+
+.s-product-color-green {
+  @include s-product-color(#fff1bc, $dark-color);
+}
+
+.s-product-color-red {
+  @include s-product-color(pink, #444444);
+}
+
+.s-product-color-yellow {
+  @include s-product-color(yellow, #444444);
+}
