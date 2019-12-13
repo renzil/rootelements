@@ -57,8 +57,11 @@
             </div>
           </div>
         </section>
-        <section id="shop" class="o-wrapper-row">
-          <div class="o-shop-header"></div>
+        <section id="shop" class="o-shop-wrapper">
+          <div class="o-product-gender-picker">
+            <button id="gender-picker-male" class="o-button-toggle-text o-button-toggle-text--selected">MEN</button>
+            <button id="gender-picker-female" class="o-button-toggle-text">WOMEN</button>
+          </div>
           <div id="product-details-image" class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-product-details-male-blue h-square">
           </div>
           <div class="o-product-details-wrapper">
@@ -73,19 +76,6 @@
               <button id="color-picker-yellow" class="o-button-circle o-button-circle--yellow"></button>
               <button id="color-picker-green" class="o-button-circle o-button-circle--green"></button>
             </div>
-            <div class="o-product-gender-picker">
-              <button id="gender-picker-male" class="o-button-toggle-text o-button-toggle-text--selected">MEN</button>
-              <button id="gender-picker-female" class="o-button-toggle-text">WOMEN</button>
-              <button id="sizing-chart-button" class="o-button-text">Sizing Chart</button>
-              <div class="o-modal-wrapper" style="display: none">
-                <div id="sizing-chart-modal" class="o-sizing-chart-modal">
-                  <h2>Sizing Chart</h2>
-                  <table>
-                  </table>
-                  <p>All sizes in inches</p>
-                </div>
-              </div>
-            </div>
             <div class="o-product-size-picker">
               <span>
                 <button id="size-picker-xs" class="o-button-toggle">XS</button>
@@ -96,7 +86,16 @@
                 <button id="size-picker-l" class="o-button-toggle">L</button>
                 <button id="size-picker-xl" class="o-button-toggle">XL</button>
                 <button id="size-picker-2xl" class="o-button-toggle">2XL</button>
-              </span>
+              </span><br>
+              <button id="sizing-chart-button" class="o-button-text">Sizing Chart</button>
+              <div class="o-modal-wrapper" style="display: none">
+                <div id="sizing-chart-modal" class="o-sizing-chart-modal">
+                  <h2>Sizing Chart</h2>
+                  <table>
+                  </table>
+                  <p>All sizes in inches</p>
+                </div>
+              </div>
             </div>
             <div class="o-product-buy-wrapper">
               <button id="product-buy-button" class="o-button-primary">ADD FOR ₹1500</button>

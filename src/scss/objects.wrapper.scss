@@ -286,9 +286,8 @@
   }
 }
 
-.o-shop-header {
-  width: 100%;
-  @include scale-min-max(height, 65, 75);
+.o-shop-wrapper {
+  @extend .o-wrapper-row;
 }
 
 .o-product-details-wrapper {
@@ -332,13 +331,26 @@
 }
 
 .o-product-gender-picker {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
   @include media-breakpoint-down(md) {
-    text-align: center;
+    height: 150px;
+    align-items: flex-end;
   }
-  margin-bottom: 20px;
-  @include scale-min-max(font-size, 18, 24);
-  .o-button-text {
-    @include scale-min-max(font-size, 16, 20);
+  background-color: #333333;
+  .o-button-toggle-text {
+    margin: 0 5px;
+    font-size: 1.5em;
+    flex-basis: 50%;
+    max-width: 200px;
+    flex-grow: 0;
+    height: 50px;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -351,7 +363,7 @@
     display: inline-block;
     margin-bottom: 10px;
   }
-  button {
+  .o-button-toggle {
     margin-right: 5px;
     @include scale-min-max(width, 30, 50);
     @include scale-min-max(height, 30, 50);
@@ -359,6 +371,10 @@
     @include scale-min-max(font-size, 18, 24);
     &:last-of-type() {
       margin-right: 0;
+    }
+    .o-button-text {
+      padding: 0;
+      font-weight: bold;
     }
   }
 }
@@ -463,12 +479,10 @@
 }
 
 @mixin button-toggle-text {
-  margin-right: 20px;
   padding: 0;
-  
   background: none;
   border: none;
-  color: $dark-color;
+  color: #f5f5f5;
   &:hover {
     opacity: 0.8;
   }
@@ -476,7 +490,7 @@
 .o-button-toggle-text {
   @include button-toggle-text;
   &--selected {
-    border-bottom: 3px solid $dark-color;
+    border-bottom: 3px solid #f5f5f5;
     padding-bottom: 3px;
     font-weight: bold;
   }
