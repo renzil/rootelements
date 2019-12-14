@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/main.scss dist/css/main.css",
-    "build": "npm-run-all build-css copy-html copy-external-deps copy-assets",
+    "build-js": "webpack",
+    "build": "npm-run-all build-css build-js copy-html copy-external-deps copy-assets",
     "copy-assets": "npm-run-all assets-download assets-unzip assets-cleanup",
     "copy-external-deps": "cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && make-dir dist/js && cp node_modules/jquery/dist/jquery.min.js dist/js && cp node_modules/popper.js/dist/umd/popper.min.js dist/js && cp node_modules/bootstrap/dist/js/bootstrap.min.js dist/js",
     "copy-html": "cp src/*.html dist",
@@ -15,7 +16,8 @@
     "watch-dist": "live-server dist --no-browser",
     "watch-html": "nodemon --watch src/ --ext html --exec \"npm run copy-html\"",
     "watch-scss": "nodemon --watch src/scss/ --ext scss --exec \"npm run build-css\"",
-    "watch": "npm-run-all build --parallel watch-dist watch-html watch-scss",
+    "watch-js": "nodemon --watch src/js/ --ext js --exec \"npm run build-js\"",
+    "watch": "npm-run-all build --parallel watch-dist watch-html watch-scss watch-js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -41,6 +43,8 @@
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
     "wget-improved": "^3.0.2"
   }
 }
