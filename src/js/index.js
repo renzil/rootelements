@@ -43,7 +43,7 @@ g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/3
 g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
 
 function getProductHeroUrl(key) {
-  return g_gdrive_map[key];
+  return key;
 }
 
 function onColorChange(newProductColor) {
