@@ -42,6 +42,10 @@ g_gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com
 g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
 g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
 
+function getProductHeroUrl(key) {
+  return g_gdrive_map[key];
+}
+
 function onColorChange(newProductColor) {
   $(".o-button-circle").each(function(index, button) {
     $(this).removeClass("o-button-circle--selected");
@@ -51,7 +55,7 @@ function onColorChange(newProductColor) {
   $("#product-details-title").text(g_productName_map[newProductColor]);
   $("#color-picker-"+newProductColor).addClass("o-button-circle--selected");
   $("#product-details-image").addClass("s-background-product-details-"+g_productGender+"-"+newProductColor);
-  $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg"] + ')');
+  $("#product-hero-image").css('background-image', 'url(' + getProductHeroUrl(["./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg"]) + ')');
   g_productColor = newProductColor;
 }
 
@@ -85,7 +89,7 @@ function onGenderChange(newProductGender) {
 
   $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
   $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
-  $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"] + ')');
+  $("#product-hero-image").css('background-image', 'url(' + getProductHeroUrl(["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"]) + ')');
   g_productGender = newProductGender;
   loadSizingChart(newProductGender);
 }
