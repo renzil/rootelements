@@ -191,7 +191,7 @@ function updatePrice(price) {
 }
 
 function setupCampaign() {
-  var campaignConfig = common.getParameterByName("utm_content") || "";
+  var campaignConfig = common.getParameterByName("utm_content") || "m_sg_1500";
   var config = campaignConfig.split("_");
   var gender = g_productGender;
   if (config.length >= 1) {
