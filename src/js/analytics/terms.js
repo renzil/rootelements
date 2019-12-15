@@ -1,9 +1,9 @@
-import * as common from "../common/analytics";
+import * as commonAnalytics from "../common/analytics";
 
 function addAnalytics() {
 }
 
 export function initialize() {
-  common.initialize();
+  commonAnalytics.initialize();
   addAnalytics();
 }

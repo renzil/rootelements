@@ -24,7 +24,6 @@
       gtag('config', 'UA-151321053-2');
     </script>
 
-    <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/main.css">
   </head>
@@ -56,7 +55,7 @@
           <div class="o-wrapper-hero-cta o-content-cta-text">
             <h1>Sustainable clothing, literally</h1> 
             <p>Beautiful T-shirts, inside and out. Made from sustainable materials.</p>
-            <a href="#shop">SHOP NOW ></a>
+            <a id="hero-shop-now-link" href="#shop">SHOP NOW ></a>
           </div>
         </section>
         <section id="story" class="o-story-section-wrapper">
@@ -69,8 +68,8 @@
         </section>
         <section id="shop" class="o-shop-wrapper">
           <div class="o-product-gender-picker">
-            <button id="gender-picker-male" class="o-button-toggle-text o-button-toggle-text--selected">MEN</button>
-            <button id="gender-picker-female" class="o-button-toggle-text">WOMEN</button>
+            <button id="gender-picker-male" data-gender="male" class="o-button-toggle-text o-button-toggle-text--selected">MEN</button>
+            <button id="gender-picker-female" data-gender="female" class="o-button-toggle-text">WOMEN</button>
           </div>
           <div id="product-details-image" class="o-wrapper-col-mobilefullwidth o-content-background-contain s-background-product-details-male-blue h-square">
           </div>
@@ -80,22 +79,22 @@
               <p>100% recycled polyester<br>Eco-friendly dyes<br>Soft, breathable fabric<br>Comfort fit</p>
             </div>
             <div class="o-product-color-picker">
-              <button id="color-picker-black" class="o-button-circle o-button-circle--black"></button>
-              <button id="color-picker-blue" class="o-button-circle o-button-circle--blue o-button-circle--selected"></button>
-              <button id="color-picker-red" class="o-button-circle o-button-circle--red"></button>
-              <button id="color-picker-yellow" class="o-button-circle o-button-circle--yellow"></button>
-              <button id="color-picker-green" class="o-button-circle o-button-circle--green"></button>
+              <button id="color-picker-black" data-color="black" class="o-button-circle o-button-circle--black"></button>
+              <button id="color-picker-blue" data-color="blue" class="o-button-circle o-button-circle--blue o-button-circle--selected"></button>
+              <button id="color-picker-red" data-color="red" class="o-button-circle o-button-circle--red"></button>
+              <button id="color-picker-yellow" data-color="yellow" class="o-button-circle o-button-circle--yellow"></button>
+              <button id="color-picker-green" data-color="green" class="o-button-circle o-button-circle--green"></button>
             </div>
             <div class="o-product-size-picker">
               <span>
-                <button id="size-picker-xs" class="o-button-toggle">XS</button>
-                <button id="size-picker-s" class="o-button-toggle">S</button>
-                <button id="size-picker-m" class="o-button-toggle o-button-toggle--selected">M</button>
+                <button id="size-picker-xs" data-size="xs" class="o-button-toggle">XS</button>
+                <button id="size-picker-s" data-size="s" class="o-button-toggle">S</button>
+                <button id="size-picker-m" data-size="m" class="o-button-toggle o-button-toggle--selected">M</button>
               </span>
               <span>
-                <button id="size-picker-l" class="o-button-toggle">L</button>
-                <button id="size-picker-xl" class="o-button-toggle">XL</button>
-                <button id="size-picker-2xl" class="o-button-toggle">2XL</button>
+                <button id="size-picker-l" data-size="l" class="o-button-toggle">L</button>
+                <button id="size-picker-xl" data-size="xl" class="o-button-toggle">XL</button>
+                <button id="size-picker-2xl" data-size="2xl" class="o-button-toggle">2XL</button>
               </span><br>
               <button id="sizing-chart-button" class="o-button-text">Sizing Chart</button>
               <div class="o-modal-wrapper" style="display: none">
@@ -108,7 +107,7 @@
               </div>
             </div>
             <div class="o-product-buy-wrapper">
-              <button id="product-buy-button" class="o-button-primary">ADD FOR ₹1500</button>
+              <button id="product-buy-button" data-price="1500" class="o-button-primary">ADD FOR ₹1500</button>
               <p>Free shipping on all orders.</p>
             </div>
           </div>

@@ -1,4 +1,5 @@
 var isMouseDownOnModalWrapper = false;
+var subscribeModalType = "";
 
 function hideAll() {
   $(".o-modal-wrapper").each(function(index, button) {
@@ -34,6 +35,14 @@ function installEventListeners() {
     }
     isMouseDownOnModalWrapper = false;
   });
+}
+
+export function setSubscribeModalType(type) {
+  subscribeModalType = type;
+}
+
+export function getSubscribeModalType() {
+  return subscribeModalType;
 }
 
 export function initialize() {

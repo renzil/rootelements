@@ -159,14 +159,12 @@ function installEventListeners() {
 
   $("#product-buy-button").on("click", function(event) {
     showSubscribeModal("New tees on the way!", "All of our products are currently out of stock. You can drop us your email and we will let you know once they become available.");
-  });
-
-  $("#product-buy-button").on("click", function(event) {
-    showSubscribeModal("New tees on the way!", "All of our products are currently out of stock. You can drop us your email and we will let you know once they become available.");
+    modal.setSubscribeModalType("product");
   });
 
   $("#story-know-more-link").on("click", function(event) {
     showSubscribeModal("Follow us", "Every T-shirt purchased goes towards cleaning up our cities. Subscribe to our newsletter to learn about our environmental initiatives.");
+    modal.setSubscribeModalType("story");
     event.preventDefault();
   });
 
