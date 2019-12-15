@@ -88,7 +88,6 @@ function onGenderChange(newProductGender) {
   $("#product-hero-image").css('background-image', 'url(' + g_gdrive_map["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"] + ')');
   g_productGender = newProductGender;
   loadSizingChart(newProductGender);
-  onColorChange(newProductGender === "male" ? "black" : "blue");
 }
 
 function onSizeChange(newProductSize) {
@@ -145,6 +144,7 @@ function installEventListeners() {
   $(".o-product-gender-picker .o-button-toggle-text").on("click", function(event) {
     var newProductGender = event.currentTarget.id.substring("gender-picker-".length);
     onGenderChange(newProductGender);
+    onColorChange(newProductGender === "male" ? "black" : "blue");
   });
 
   $(".o-product-size-picker .o-button-toggle").on("click", function(event) {
@@ -181,12 +181,41 @@ function installEventListeners() {
   });
 }
 
+function updatePrice(price) {
+  $("#product-buy-button").attr("data-price", price);
+  $("#product-buy-button").text("ADD FOR ₹" + price);
+}
+
+function setupCampaign() {
+  var campaignConfig = common.getParameterByName("utm_content") || "";
+  var config = campaignConfig.split("_");
+  var gender = g_productGender;
+  if (config.length >= 1) {
+    gender = config[0] === "f" ? "female" : "male";
+    onGenderChange(gender);
+  }
+  if (config.length >= 2) {
+    var color = gender === "male" ? "black" : "blue";
+    switch (config[1]) {
+      case "sg": color = "black"; break;
+      case "ib": color = "blue"; break;
+      case "jg": color = "green"; break;
+      case "cr": color = "red"; break;
+      case "ty": color = "yellow"; break;
+    }
+    onColorChange(color);
+  }
+  if (config.length >= 3) {
+    updatePrice(config[2]);
+  }
+}
+
 function initialize() {
   common.initialize();
   modal.initialize();
   analytics.initialize();
   installEventListeners();
-  onGenderChange("male");
+  setupCampaign();
 }
 
 initialize();

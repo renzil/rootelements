@@ -22,6 +22,25 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-151321053-2');
+
+      // remove utm_* query parameters
+      function remove_utm() {
+        function paramIsNotUtm(param) { return param.slice(0, 4) !== 'utm_'; }
+        if (history && history.replaceState && location.search) {
+          var params = location.search.slice(1).split('&');
+          var newParams = params.filter(paramIsNotUtm);
+          if (newParams.length < params.length) {
+            var search = newParams.length ? '?' + newParams.join('&') : '';
+            var url = location.pathname + search + location.hash;
+            history.replaceState(null, null, url);
+          }
+        }
+      }
+      gtag('event', 'remove_utm', {
+        'event_callback': function() {
+          remove_utm();
+        }
+      });
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
