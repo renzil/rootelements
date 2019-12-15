@@ -1,5 +1,6 @@
 import * as common from "./common/common";
 import * as modal from "./common/modal";
+import * as analytics from "./analytics/index";
 
 var g_productColor = "blue";
 var g_productGender = "male";
@@ -185,6 +186,7 @@ function installEventListeners() {
 function initialize() {
   common.initialize();
   modal.initialize();
+  analytics.initialize();
   installEventListeners();
   onGenderChange("male");
 }
