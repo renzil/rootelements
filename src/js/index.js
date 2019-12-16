@@ -41,8 +41,18 @@ g_gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://gdurl.com/
 g_gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com/dcwm";
 g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
 g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
+g_gdrive_map["./assets/images/landing-hero-male-black.png"] = "https://gdurl.com/hE5z";
+g_gdrive_map["./assets/images/landing-hero-male-blue.png"] = "https://gdurl.com/liSz";
+g_gdrive_map["./assets/images/landing-hero-male-green.png"] = "https://gdurl.com/b1Oz";
+g_gdrive_map["./assets/images/landing-hero-male-red.png"] = "https://gdurl.com/NxlMN";
+g_gdrive_map["./assets/images/landing-hero-male-yellow.png"] = "https://gdurl.com/8LCG";
+g_gdrive_map["./assets/images/landing-hero-female-black.png"] = "https://gdurl.com/xMFX";
+g_gdrive_map["./assets/images/landing-hero-female-blue.png"] = "https://gdurl.com/espj";
+g_gdrive_map["./assets/images/landing-hero-female-green.png"] = "https://gdurl.com/RQtT";
+g_gdrive_map["./assets/images/landing-hero-female-red.png"] = "https://gdurl.com/e9q1";
+g_gdrive_map["./assets/images/landing-hero-female-yellow.png"] = "https://gdurl.com/WQTK";
 
-function getProductHeroUrl(key) {
+function getImageUrl(key) {
   return g_gdrive_map[key];
 }
 
@@ -55,7 +65,7 @@ function onColorChange(newProductColor) {
   $("#product-details-title").text(g_productName_map[newProductColor]);
   $("#color-picker-"+newProductColor).addClass("o-button-circle--selected");
   $("#product-details-image").addClass("s-background-product-details-"+g_productGender+"-"+newProductColor);
-  $("#product-hero-image").css('background-image', 'url(' + getProductHeroUrl(["./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg"]) + ')');
+  $("#product-hero-image").css('background-image', 'url(' + getImageUrl("./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg") + ')');
   g_productColor = newProductColor;
 }
 
@@ -89,7 +99,7 @@ function onGenderChange(newProductGender) {
 
   $("#gender-picker-"+newProductGender).addClass("o-button-toggle-text--selected");
   $("#product-details-image").addClass("s-background-product-details-"+newProductGender+"-"+g_productColor);
-  $("#product-hero-image").css('background-image', 'url(' + getProductHeroUrl(["./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg"]) + ')');
+  $("#product-hero-image").css('background-image', 'url(' + getImageUrl("./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg") + ')');
   g_productGender = newProductGender;
   loadSizingChart(newProductGender);
 }
@@ -190,6 +200,10 @@ function updatePrice(price) {
   $("#product-buy-button").text("ADD FOR ₹" + price);
 }
 
+function changeLandingHeroImage(gender, color) {
+  $("#landing-hero-image").attr("src", getImageUrl("./assets/images/landing-hero-"+gender+"-"+color+".png"));
+}
+
 function setupCampaign() {
   var campaignConfig = common.getParameterByName("utm_content") || "m_sg_1500";
   var config = campaignConfig.split("_");
@@ -198,17 +212,20 @@ function setupCampaign() {
     gender = config[0] === "f" ? "female" : "male";
     onGenderChange(gender);
   }
+  
+  var color = gender === "male" ? "black" : "blue";
   if (config.length >= 2) {
-    var color = gender === "male" ? "black" : "blue";
     switch (config[1]) {
-      case "sg": color = "black"; break;
-      case "ib": color = "blue"; break;
-      case "jg": color = "green"; break;
-      case "cr": color = "red"; break;
-      case "ty": color = "yellow"; break;
+    case "sg": color = "black"; break;
+    case "ib": color = "blue"; break;
+    case "jg": color = "green"; break;
+    case "cr": color = "red"; break;
+    case "ty": color = "yellow"; break;
     }
-    onColorChange(color);
   }
+  onColorChange(color);
+  changeLandingHeroImage(gender, color);
+
   if (config.length >= 3) {
     updatePrice(config[2]);
   }
