@@ -77,7 +77,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  h1 {
+  h2 {
     @include scale-min-max(font-size, 36, 55);
     padding-bottom: 35px;
   }
@@ -120,70 +120,6 @@
     img {
       width: 100%;
     }
-  }
-}
-
-.o-content-subscribe {
-  text-align: center;
-  @include media-breakpoint-up(xl) {
-    margin: 0 50px;
-  }
-  
-  h1{
-    @include scale-min-max(font-size, 36, 55);
-    padding-bottom: 25px;
-  }
-
-  p {
-    text-align: center;
-    @include scale-min-max(font-size, 20, 28);
-    line-height: 150%;
-    padding-bottom: 40px;
-  }
-
-  input {
-    border: 4px solid $dark-color;
-    font-size: 24px;
-    border-radius: 15px;
-    background-color: $light-color;
-    width: 80%;
-    height: 45px;
-    box-sizing: content-box;
-    margin-bottom: 15px;
-  }
-
-  input::placeholder {
-    padding-left: 10px;
-    text-align: left;
-    color: $dark-color;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  button {
-    background-color: $dark-color;
-    //border: 4px solid $dark-color;
-    color: $light-color;
-    font-size: 24px;
-    border-radius: 15px;
-    width: 80%;
-    height: 50px;
-    box-sizing: content-box;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  button:hover {
-    background-color: $dark-color * 1.2;
-  }
-
-  button:active {
-    background-color: $dark-color * 1.2;
-  }
-
-  .notification{
-    font-size: 18px;
-    padding-top: 25px;
-    line-height: normal;
-    text-align: center;
   }
 }
 
@@ -263,26 +199,20 @@
     text-align: center;
     bottom: 60px;
   }
+  h2 {
+    @include scale-min-max(font-size, 36, 55);
+    padding-bottom: 35px;
+  }
   a {
     color: #f5f5f5;
     display: block;
-    margin-top: 20px;
 
     &:hover {
       color: #eeeeee;
     }
-  }
-  @media only screen and (orientation: landscape) {
-    font-size: 2.2em;
-  }
-  @media only screen and (orientation: portrait) {
-    font-size: 1em;
-    @media (min-height: 992px) {
-        font-size: 2em;
-    }
-    @media (min-height: 1200px) {
-      font-size: 2em;
-    }
+
+    @include scale-min-max(font-size, 24, 36);
+    font-weight: bold;
   }
 }
 
