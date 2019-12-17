@@ -80,6 +80,10 @@ function loadSizingChart(gender) {
     sizing_chart_table.append($("<tr></tr>").append($("<td></td>").text(size_array_tuple[0]), $("<td></td>").text(size_array_tuple[1]), $("<td></td>").text(size_array_tuple[2])));
   }
 }
+function changeLandingHeroImage(gender) {
+  var color = gender === "male" ? "blue" : "black";
+  $("#landing-hero-image").attr("src", getImageUrl("./assets/images/landing-hero-"+gender+"-"+color+".png"));
+}
 function onGenderChange(newProductGender) {
   $(".o-product-gender-picker .o-button-toggle-text").each(function(index, button) {
     $(this).removeClass("o-button-toggle-text--selected");
@@ -89,7 +93,7 @@ function onGenderChange(newProductGender) {
     var buttonColor = $(this).attr("id").substring("color-picker-".length);
     if (newProductGender === "male" && ["black", "blue", "green"].indexOf(buttonColor) !== -1) {
       $(this).show();
-    } else if (newProductGender === "female" && ["red", "blue", "yellow"].indexOf(buttonColor) !== -1) {
+    } else if (newProductGender === "female" && ["red", "blue", "black", "yellow"].indexOf(buttonColor) !== -1) {
       $(this).show();
     } else {
       $(this).hide();
@@ -102,6 +106,7 @@ function onGenderChange(newProductGender) {
   $("#product-hero-image").css('background-image', 'url(' + getImageUrl("./assets/images/product-hero-"+newProductGender+"-"+g_productColor+".jpg") + ')');
   g_productGender = newProductGender;
   loadSizingChart(newProductGender);
+  changeLandingHeroImage(newProductGender);
 }
 
 function onSizeChange(newProductSize) {
@@ -158,7 +163,7 @@ function installEventListeners() {
   $(".o-product-gender-picker .o-button-toggle-text").on("click", function(event) {
     var newProductGender = event.currentTarget.id.substring("gender-picker-".length);
     onGenderChange(newProductGender);
-    onColorChange(newProductGender === "male" ? "black" : "blue");
+    onColorChange(newProductGender === "male" ? "blue" : "black");
   });
 
   $(".o-product-size-picker .o-button-toggle").on("click", function(event) {
@@ -200,10 +205,6 @@ function updatePrice(price) {
   $("#product-buy-button").text("ADD FOR ₹" + price);
 }
 
-function changeLandingHeroImage(gender, color) {
-  $("#landing-hero-image").attr("src", getImageUrl("./assets/images/landing-hero-"+gender+"-"+color+".png"));
-}
-
 function setupCampaign() {
   var campaignConfig = common.getParameterByName("utm_content") || "m_ib_1500";
   var config = campaignConfig.split("_");
@@ -224,7 +225,6 @@ function setupCampaign() {
     }
   }
   onColorChange(color);
-  changeLandingHeroImage(gender, color);
 
   if (config.length >= 3) {
     updatePrice(config[2]);
