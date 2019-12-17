@@ -207,7 +207,7 @@ function updatePrice(price) {
 
 function setupCampaign() {
   var campaignConfig = common.getParameterByName("utm_content") || "m_ib_1500";
-  var config = campaignConfig.split("_");
+  var config = campaignConfig.indexOf("_") !== -1 ? campaignConfig.split("_") : campaignConfig;
   var gender = g_productGender;
   if (config.length >= 1) {
     gender = config[0] === "f" ? "female" : "male";
