@@ -2,9 +2,14 @@ import * as common from "./common/common";
 import * as modal from "./common/modal";
 import * as analytics from "./analytics/index";
 
-var g_productColor = "blue";
-var g_productGender = "male";
-var g_productSize = "m";
+var DEFAULT_MALE_COLOR = "blue";
+var DEFAULT_FEMALE_COLOR = "black";
+var DEFAULT_GENDER = "male";
+var DEFAULT_SIZE = "m";
+
+var g_productGender = DEFAULT_GENDER;
+var g_productColor = DEFAULT_MALE_COLOR;
+var g_productSize = DEFAULT_SIZE;
 var g_productName_map = new Object();
 g_productName_map["blue"] = "Icy Blue";
 g_productName_map["black"] = "Space Gray";
@@ -81,7 +86,7 @@ function loadSizingChart(gender) {
   }
 }
 function changeLandingHeroImage(gender) {
-  var color = gender === "male" ? "blue" : "black";
+  var color = gender === "male" ? DEFAULT_MALE_COLOR : DEFAULT_FEMALE_COLOR;
   $("#landing-hero-image").attr("src", getImageUrl("./assets/images/landing-hero-"+gender+"-"+color+".png"));
 }
 function onGenderChange(newProductGender) {
@@ -163,7 +168,7 @@ function installEventListeners() {
   $(".o-product-gender-picker .o-button-toggle-text").on("click", function(event) {
     var newProductGender = event.currentTarget.id.substring("gender-picker-".length);
     onGenderChange(newProductGender);
-    onColorChange(newProductGender === "male" ? "blue" : "black");
+    onColorChange(newProductGender === "male" ? DEFAULT_MALE_COLOR : DEFAULT_FEMALE_COLOR);
   });
 
   $(".o-product-size-picker .o-button-toggle").on("click", function(event) {
@@ -214,7 +219,7 @@ function setupCampaign() {
     onGenderChange(gender);
   }
   
-  var color = gender === "male" ? "black" : "blue";
+  var color = gender === "male" ? DEFAULT_MALE_COLOR : DEFAULT_FEMALE_COLOR;
   if (config.length >= 2) {
     switch (config[1]) {
     case "sg": color = "black"; break;
