@@ -72,7 +72,7 @@ function addAnalytics() {
     var size = $(e.target).attr("data-size");
     var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
-      content_name: 'product_size' + size,
+      content_name: 'product_size_' + size,
       product_color: productData.color,
       product_gender: productData.gender,
       product_price: productData.price,
