@@ -18,6 +18,8 @@ function addAnalytics() {
   $("#subscribe-modal .o-button-primary").on("click", function() {
     var productData = getProductData();
     fbq('track', 'CompleteRegistration', {
+      value: Number(productData.price),
+      currency: 'INR',
       subscriptionType: modal.getSubscribeModalType(),
       product_color: productData.color,
       product_gender: productData.gender,
