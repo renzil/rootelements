@@ -1,6 +1,7 @@
 import * as common from "./common/common";
 import * as modal from "./common/modal";
 import * as analytics from "./analytics/index";
+import * as utils from "./common/utils";
 
 var DEFAULT_MALE_COLOR = "blue";
 var DEFAULT_FEMALE_COLOR = "black";
@@ -124,6 +125,8 @@ function onSizeChange(newProductSize) {
 }
 
 function onSubscribeClick() {
+  var productData = utils.getProductData();
+  var subscriptionType = modal.getSubscribeModalType();
   var responseText = $("#subscribe-modal .o-subscribe-modal-status");
   responseText.text("Loading ...");
   gtag('event', 'click_internal', { 'event_category': 'click', 'event_label': 'subscribe', 'value': 1 });
@@ -137,15 +140,36 @@ function onSubscribeClick() {
           console.log(result);
           if (result.status === "subscribed") {
             responseText.text("You have been succesfully subscribed.");
+            fbq('trackCustom', 'SubscribeResponse', {
+              response: "success"
+            });
+            fbq('track', 'CompleteRegistration', {
+              value: Number(productData.price),
+              currency: 'INR',
+              subscriptionType: subscriptionType,
+              product_color: productData.color,
+              product_gender: productData.gender,
+              product_price: productData.price,
+              product_size: productData.size
+            });
             gtag('event', 'response_subscribe', { 'event_category': 'response', 'event_label': 'success', 'value': 1 });
           } else if (result.title === "Member Exists") {
             responseText.text("You have been succesfully subscribed.");
+            fbq('trackCustom', 'SubscribeResponse', {
+              response: "member_exists"
+            });
             gtag('event', 'response_subscribe', { 'event_category': 'response', 'event_label': 'member_exists', 'value': 1 });
           } else if (result.title === "Invalid Resource") {
             responseText.text("Please check you email id and try again.");
+            fbq('trackCustom', 'SubscribeResponse', {
+              response: "invalid_email"
+            });
             gtag('event', 'response_subscribe', { 'event_category': 'response', 'event_label': 'invalid_email', 'value': 1 });
           } else {
             responseText.text("Please check you email id and try again.");
+            fbq('trackCustom', 'SubscribeResponse', {
+              response: "unknown_error"
+            });
             gtag('event', 'response_subscribe', { 'event_category': 'response', 'event_label': 'unknown_error', 'value': 1 });
           }
       }

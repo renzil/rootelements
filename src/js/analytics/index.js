@@ -1,26 +1,12 @@
 import * as commonAnalytics from "../common/analytics";
 import * as modal from "../common/modal";
+import * as utils from "../common/utils";
 
-function getProductData() {
-  var price = $("#product-buy-button").attr("data-price");
-  var gender = $(".o-product-gender-picker .o-button-toggle-text--selected").attr("data-gender");
-  var color = $(".o-product-color-picker .o-button-circle--selected").attr("data-color");
-  var size = $(".o-product-size-picker .o-button-toggle--selected").attr("data-size");
-
-  return {
-    price: price,
-    gender: gender,
-    color: color,
-    size: size
-  };
-}
 function addAnalytics() {
   $("#subscribe-modal .o-button-primary").on("click", function() {
-    var productData = getProductData();
-    fbq('track', 'CompleteRegistration', {
-      value: Number(productData.price),
-      currency: 'INR',
-      subscriptionType: modal.getSubscribeModalType(),
+    var productData = utils.getProductData();
+    fbq('trackCustom', 'SubscribeIntent', {
+      type: modal.getSubscribeModalType(),
       product_color: productData.color,
       product_gender: productData.gender,
       product_price: productData.price,
@@ -30,7 +16,7 @@ function addAnalytics() {
   });
 
   $("#hero-shop-now-link").on("click", function() {
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'hero_shopnow',
       product_color: productData.color,
@@ -40,7 +26,7 @@ function addAnalytics() {
   });
 
   $("#story-know-more-link").on("click", function() {
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'story_knowmore',
       product_color: productData.color,
@@ -50,7 +36,7 @@ function addAnalytics() {
   });
 
   $("#gender-picker-male").on("click", function() {
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'product_gender_male',
       product_color: productData.color,
@@ -60,7 +46,7 @@ function addAnalytics() {
   });
 
   $("#gender-picker-female").on("click", function() {
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'product_gender_female',
       product_color: productData.color,
@@ -71,7 +57,7 @@ function addAnalytics() {
 
   $(".o-product-color-picker .o-button-circle").on("click", function(e) {
     var color = $(e.target).attr("data-color");
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'product_color_' + color,
       product_color: color,
@@ -84,7 +70,7 @@ function addAnalytics() {
 
   $(".o-product-size-picker .o-button-toggle").on("click", function(e) {
     var size = $(e.target).attr("data-size");
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'product_size' + size,
       product_color: productData.color,
@@ -96,7 +82,7 @@ function addAnalytics() {
   });
 
   $("#sizing-chart-button").on("click", function(e) {
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'ViewContent', {
       content_name: 'product_sizingchart',
       product_color: productData.color,
@@ -108,7 +94,7 @@ function addAnalytics() {
   });
 
   $("#product-buy-button").on("click", function(e) {
-    var productData = getProductData();
+    var productData = utils.getProductData();
     fbq('track', 'AddToCart', {
       value: Number(productData.price),
       currency: 'INR',
