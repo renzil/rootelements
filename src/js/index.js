@@ -62,6 +62,14 @@ function getImageUrl(key) {
   return g_gdrive_map[key];
 }
 
+function changeLandingHeroImage(gender, color) {
+  if (!color) {
+    color = (gender === "male") ? DEFAULT_MALE_COLOR : DEFAULT_FEMALE_COLOR;
+  }
+  
+  $("#landing-hero-image").attr("src", getImageUrl("./assets/images/landing-hero-"+gender+"-"+color+".png"));
+}
+
 function onColorChange(newProductColor) {
   $(".o-button-circle").each(function(index, button) {
     $(this).removeClass("o-button-circle--selected");
@@ -73,6 +81,7 @@ function onColorChange(newProductColor) {
   $("#product-details-image").addClass("s-background-product-details-"+g_productGender+"-"+newProductColor);
   $("#product-hero-image").css('background-image', 'url(' + getImageUrl("./assets/images/product-hero-"+g_productGender+"-"+newProductColor+".jpg") + ')');
   g_productColor = newProductColor;
+  changeLandingHeroImage(g_productGender, newProductColor);
 }
 
 function loadSizingChart(gender) {
@@ -86,10 +95,7 @@ function loadSizingChart(gender) {
     sizing_chart_table.append($("<tr></tr>").append($("<td></td>").text(size_array_tuple[0]), $("<td></td>").text(size_array_tuple[1]), $("<td></td>").text(size_array_tuple[2])));
   }
 }
-function changeLandingHeroImage(gender) {
-  var color = gender === "male" ? DEFAULT_MALE_COLOR : DEFAULT_FEMALE_COLOR;
-  $("#landing-hero-image").attr("src", getImageUrl("./assets/images/landing-hero-"+gender+"-"+color+".png"));
-}
+
 function onGenderChange(newProductGender) {
   $(".o-product-gender-picker .o-button-toggle-text").each(function(index, button) {
     $(this).removeClass("o-button-toggle-text--selected");
