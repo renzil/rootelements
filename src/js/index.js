@@ -59,7 +59,7 @@ g_gdrive_map["./assets/images/landing-hero-female-red.png"] = "https://drive.goo
 g_gdrive_map["./assets/images/landing-hero-female-yellow.png"] = "https://drive.google.com/uc?id=1cyniXsItdc80NAcE9B8-G5_e5ZLke2I4";
 
 function getImageUrl(key) {
-  return g_gdrive_map[key];
+  return key;
 }
 
 function changeLandingHeroImage(gender, color) {
