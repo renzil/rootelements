@@ -37,26 +37,26 @@ var g_sizing_chart = {
   ]
 };
 var g_gdrive_map = new Object();
-g_gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://gdurl.com/eL6w";
-g_gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://gdurl.com/GvIb";
-g_gdrive_map["./assets/images/product-hero-female-green.jpg"] = "https://gdurl.com/aFl0";
-g_gdrive_map["./assets/images/product-hero-female-red.jpg"] = "https://gdurl.com/DWH1";
-g_gdrive_map["./assets/images/product-hero-female-yellow.jpg"] = "https://gdurl.com/kfO8";
-g_gdrive_map["./assets/images/product-hero-male-black.jpg"] = "https://gdurl.com/GV59";
-g_gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://gdurl.com/V2Uf";
-g_gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com/dcwm";
-g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
-g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
-g_gdrive_map["./assets/images/landing-hero-male-black.png"] = "https://gdurl.com/hE5z";
-g_gdrive_map["./assets/images/landing-hero-male-blue.png"] = "https://gdurl.com/liSz";
-g_gdrive_map["./assets/images/landing-hero-male-green.png"] = "https://gdurl.com/b1Oz";
-g_gdrive_map["./assets/images/landing-hero-male-red.png"] = "https://gdurl.com/NxlMN";
-g_gdrive_map["./assets/images/landing-hero-male-yellow.png"] = "https://gdurl.com/8LCG";
-g_gdrive_map["./assets/images/landing-hero-female-black.png"] = "https://gdurl.com/xMFX";
-g_gdrive_map["./assets/images/landing-hero-female-blue.png"] = "https://gdurl.com/espj";
-g_gdrive_map["./assets/images/landing-hero-female-green.png"] = "https://gdurl.com/RQtT";
-g_gdrive_map["./assets/images/landing-hero-female-red.png"] = "https://gdurl.com/e9q1";
-g_gdrive_map["./assets/images/landing-hero-female-yellow.png"] = "https://gdurl.com/WQTK";
+g_gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://drive.google.com/uc?id=1ityEvVrVyS4mzwbJAxDxXBbKPpuRvVc_";
+g_gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://drive.google.com/uc?id=182i9EIWpibEdWHbqVj7B4bznj-7NNRc3";
+g_gdrive_map["./assets/images/product-hero-female-green.jpg"] = "https://drive.google.com/uc?id=1NM753sQ4wLGuX-491lOSkzwkLLEqhgJF";
+g_gdrive_map["./assets/images/product-hero-female-red.jpg"] = "https://drive.google.com/uc?id=1iIboDRaFLgEINZWo7XDaj936HSzSFxIS";
+g_gdrive_map["./assets/images/product-hero-female-yellow.jpg"] = "https://drive.google.com/uc?id=1ZKifZNaXcUT9jP9lgBwRwVauxhM0-wWV";
+g_gdrive_map["./assets/images/product-hero-male-black.jpg"] = "https://drive.google.com/uc?id=1eTrQYeP99WMv71TR56YuBiwp42DgeRLg";
+g_gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://drive.google.com/uc?id=1ChCelW8_Q7NVZlMrgmr__ujliuPp_l24";
+g_gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://drive.google.com/uc?id=1eS9pBsqP-hWuyhBhKtkaWQb45z3ZKTWo";
+g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://drive.google.com/uc?id=1Sdh_VwC1xioquUxhuec3dfLTFRNG3Aat";
+g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://drive.google.com/uc?id=17arl_refyrfGNGFvcSH9Q0sj5a6ajBiq";
+g_gdrive_map["./assets/images/landing-hero-male-black.png"] = "https://drive.google.com/uc?id=1hRPnCIqtZ8YenWmSV7Z42kAiX8wdyPPP";
+g_gdrive_map["./assets/images/landing-hero-male-blue.png"] = "https://drive.google.com/uc?id=1AToTdhrSLyS8BlRaF8GZ5oa4xgOjdZu7";
+g_gdrive_map["./assets/images/landing-hero-male-green.png"] = "https://drive.google.com/uc?id=1ee3EaOp5atctLqFx0RYr_5CRAUjIvJaN";
+g_gdrive_map["./assets/images/landing-hero-male-red.png"] = "https://drive.google.com/uc?id=1pHEIKf7m2cWHZpDT4hMtZ5X-xbtLVUHP";
+g_gdrive_map["./assets/images/landing-hero-male-yellow.png"] = "https://drive.google.com/uc?id=1nAjLqu_FtuOAloWqF7YdMtXSK603hn8t";
+g_gdrive_map["./assets/images/landing-hero-female-black.png"] = "https://drive.google.com/uc?id=1apgcFM3vsA1YdlBfpiCK_GCkKMjyfMJy";
+g_gdrive_map["./assets/images/landing-hero-female-blue.png"] = "https://drive.google.com/uc?id=1RL1sN46nWgi_B1AHsjNK78sc7gnGy1wP";
+g_gdrive_map["./assets/images/landing-hero-female-green.png"] = "https://drive.google.com/uc?id=1_GxU_s9nr_-0pobCMAYHvFMxaOhVOyuI";
+g_gdrive_map["./assets/images/landing-hero-female-red.png"] = "https://drive.google.com/uc?id=1gUbI6_ft7GsX_Cyly8nZCyP4Q9mCMpSn";
+g_gdrive_map["./assets/images/landing-hero-female-yellow.png"] = "https://drive.google.com/uc?id=1cyniXsItdc80NAcE9B8-G5_e5ZLke2I4";
 
 function getImageUrl(key) {
   return key;
