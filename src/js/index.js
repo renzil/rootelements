@@ -36,27 +36,6 @@ var g_sizing_chart = {
     ["2XL", "40-42", "25.5"]
   ]
 };
-var g_gdrive_map = new Object();
-g_gdrive_map["./assets/images/product-hero-female-black.jpg"] = "https://gdurl.com/eL6w";
-g_gdrive_map["./assets/images/product-hero-female-blue.jpg"] = "https://gdurl.com/GvIb";
-g_gdrive_map["./assets/images/product-hero-female-green.jpg"] = "https://gdurl.com/aFl0";
-g_gdrive_map["./assets/images/product-hero-female-red.jpg"] = "https://gdurl.com/DWH1";
-g_gdrive_map["./assets/images/product-hero-female-yellow.jpg"] = "https://gdurl.com/kfO8";
-g_gdrive_map["./assets/images/product-hero-male-black.jpg"] = "https://gdurl.com/GV59";
-g_gdrive_map["./assets/images/product-hero-male-blue.jpg"] = "https://gdurl.com/V2Uf";
-g_gdrive_map["./assets/images/product-hero-male-green.jpg"] = "https://gdurl.com/dcwm";
-g_gdrive_map["./assets/images/product-hero-male-red.jpg"] = "https://gdurl.com/34n4";
-g_gdrive_map["./assets/images/product-hero-male-yellow.jpg"] = "https://gdurl.com/Nowl";
-g_gdrive_map["./assets/images/landing-hero-male-black.png"] = "https://gdurl.com/hE5z";
-g_gdrive_map["./assets/images/landing-hero-male-blue.png"] = "https://gdurl.com/liSz";
-g_gdrive_map["./assets/images/landing-hero-male-green.png"] = "https://gdurl.com/b1Oz";
-g_gdrive_map["./assets/images/landing-hero-male-red.png"] = "https://gdurl.com/NxlMN";
-g_gdrive_map["./assets/images/landing-hero-male-yellow.png"] = "https://gdurl.com/8LCG";
-g_gdrive_map["./assets/images/landing-hero-female-black.png"] = "https://gdurl.com/xMFX";
-g_gdrive_map["./assets/images/landing-hero-female-blue.png"] = "https://gdurl.com/espj";
-g_gdrive_map["./assets/images/landing-hero-female-green.png"] = "https://gdurl.com/RQtT";
-g_gdrive_map["./assets/images/landing-hero-female-red.png"] = "https://gdurl.com/e9q1";
-g_gdrive_map["./assets/images/landing-hero-female-yellow.png"] = "https://gdurl.com/WQTK";
 
 function getImageUrl(key) {
   return key;
