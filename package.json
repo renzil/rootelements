@@ -6,13 +6,9 @@
   "scripts": {
     "build-css": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/main.scss dist/css/main.css",
     "build-js": "webpack",
-    "build": "npm-run-all build-css build-js copy-html copy-external-deps copy-assets",
-    "copy-assets": "npm-run-all assets-download assets-unzip assets-cleanup",
+    "build": "npm-run-all build-css build-js copy-html copy-external-deps",
     "copy-external-deps": "cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && make-dir dist/js && cp node_modules/jquery/dist/jquery.min.js dist/js && cp node_modules/popper.js/dist/umd/popper.min.js dist/js && cp node_modules/bootstrap/dist/js/bootstrap.min.js dist/js",
     "copy-html": "cp src/*.html dist",
-    "assets-cleanup": "rimraf dist/assets.zip",
-    "assets-download": "make-dir dist && nwget https://dzongri.s3.ap-south-1.amazonaws.com/assets/assets.zip -O dist/assets.zip",
-    "assets-unzip": "decompress dist/assets.zip --out-dir=dist/",
     "watch-dist": "live-server dist --no-browser",
     "watch-html": "nodemon --watch src/ --ext html --exec \"npm run copy-html\"",
     "watch-scss": "nodemon --watch src/scss/ --ext scss --exec \"npm run build-css\"",
@@ -31,20 +27,20 @@
   },
   "homepage": "https://github.com/renzil/rootelements#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.0"
+    "bootstrap": "^4.6.2",
+    "jquery": "^3.6.1",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
     "decompress-cli": "^2.0.0",
-    "live-server": "^1.2.1",
+    "live-server": "^1.2.2",
     "make-dir-cli": "^2.0.0",
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "wget-improved": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "wget-improved": "^3.3.1"
   }
 }
